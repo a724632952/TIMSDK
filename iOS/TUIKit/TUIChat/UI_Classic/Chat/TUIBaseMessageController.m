@@ -134,6 +134,8 @@
     [self.view addGestureRecognizer:tap];
     
     self.tableView.scrollsToTop = NO;
+    //    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.tableView.frame.size.width, NavBar_Height)];
+    //    self.tableView.contentInset = UIEdgeInsetsMake(NavBar_Height, 0.0, 0.0, 0.0);
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.backgroundColor = TUIChatDynamicColor(@"chat_controller_bg_color", @"#FFFFFF");
     self.indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, TMessageController_Header_Height)];
@@ -313,9 +315,11 @@
 - (void)scrollToBottom:(BOOL)animate {
     // Do not call this interface frequently in a short period of time, as it will affect the UI experience.
     if (self.messageDataProvider.uiMsgs.count > 0) {
-        NSIndexPath *bottom = [NSIndexPath indexPathForRow:self.messageDataProvider.uiMsgs.count - 1 inSection:0];
-        [self.tableView scrollToRowAtIndexPath:bottom atScrollPosition:UITableViewScrollPositionBottom animated:animate];
-        self.isAutoScrolledToBottom = YES;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSIndexPath *bottom = [NSIndexPath indexPathForRow:self.messageDataProvider.uiMsgs.count - 1 inSection:0];
+            [self.tableView scrollToRowAtIndexPath:bottom atScrollPosition:UITableViewScrollPositionBottom animated:animate];
+            self.isAutoScrolledToBottom = YES;
+        });
     }
 }
 

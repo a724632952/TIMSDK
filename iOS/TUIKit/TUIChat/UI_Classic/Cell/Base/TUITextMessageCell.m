@@ -41,8 +41,8 @@
         [self.contentView addSubview:self.bottomContainer];
 
         self.voiceReadPoint = [[UIImageView alloc] init];
-        self.voiceReadPoint.backgroundColor = [UIColor redColor];
-        self.voiceReadPoint.frame = CGRectMake(0, 0, 5, 5);
+        self.voiceReadPoint.backgroundColor = [UIColor tui_colorWithHex:@"#EE4A43" alpha:1.0];
+        self.voiceReadPoint.frame = CGRectMake(0, 0, 7, 7);
         self.voiceReadPoint.hidden = YES;
         [self.voiceReadPoint.layer setCornerRadius:self.voiceReadPoint.frame.size.width / 2];
         [self.voiceReadPoint.layer setMasksToBounds:YES];
@@ -271,7 +271,7 @@ static UIColor *gOutgoingTextColor;
 
 + (UIColor *)outgoingTextColor {
     if (!gOutgoingTextColor) {
-        gOutgoingTextColor = TUIChatDynamicColor(@"chat_text_message_send_text_color", @"#000000");
+        gOutgoingTextColor = TUIChatDynamicColor(@"chat_text_message_send_text_color", @"#FFFFFF");
     }
     return gOutgoingTextColor;
 }
@@ -297,7 +297,7 @@ static UIColor *gIncommingTextColor;
 
 + (UIColor *)incommingTextColor {
     if (!gIncommingTextColor) {
-        gIncommingTextColor = TUIChatDynamicColor(@"chat_text_message_receive_text_color", @"#000000");
+        gIncommingTextColor = TUIChatDynamicColor(@"chat_text_message_receive_text_color", @"#FFFFFF");
     }
     return gIncommingTextColor;
 }

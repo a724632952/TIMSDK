@@ -147,6 +147,8 @@
  */
 @property(nonatomic, strong) UIButton *recordButton;
 
+@property (nonatomic, strong) UIButton *sendButton;
+
 @property(nonatomic, weak) id<TUIInputBarDelegate> delegate;
 
 @property(nonatomic, copy) void (^inputBarTextChanged)(UITextView * textview);

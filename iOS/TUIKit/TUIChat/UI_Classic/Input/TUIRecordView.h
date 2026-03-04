@@ -30,6 +30,12 @@
 
 @property(nonatomic, strong) UILabel *timeLabel;
 
+@property (nonatomic, strong) UIImageView *talkImageView;
+
+@property (nonatomic, strong) UIView *secondBgView;
+
+@property (nonatomic, strong) UIImageView *cancelIconView;
+
 /**
  *  Sets the volume of the current recording.
  *  It is convenient for the image in the recording icon view to change according to the volume.

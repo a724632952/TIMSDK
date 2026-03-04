@@ -18,18 +18,19 @@
     if (self) {
         _voice = [[UIImageView alloc] init];
         _voice.animationDuration = 1;
+        _voice.contentMode = UIViewContentModeScaleAspectFit;
         [self.bubbleView addSubview:_voice];
 
         _duration = [[UILabel alloc] init];
-        _duration.font = [UIFont boldSystemFontOfSize:12];
+        _duration.font = [UIFont systemFontOfSize:14.0 weight:UIFontWeightMedium];
         [self.bubbleView addSubview:_duration];
         
         self.bottomContainer = [[UIView alloc] init];
         [self.contentView addSubview:self.bottomContainer];
 
         _voiceReadPoint = [[UIImageView alloc] init];
-        _voiceReadPoint.backgroundColor = [UIColor redColor];
-        _voiceReadPoint.frame = CGRectMake(0, 0, 5, 5);
+        _voiceReadPoint.backgroundColor = [UIColor tui_colorWithHex:@"#EE4A43" alpha:1.0];
+        _voiceReadPoint.frame = CGRectMake(0, 0, 7, 7);
         _voiceReadPoint.hidden = YES;
         [_voiceReadPoint.layer setCornerRadius:_voiceReadPoint.frame.size.width / 2];
         [_voiceReadPoint.layer setMasksToBounds:YES];
@@ -98,10 +99,10 @@
 - (void)applyStyleFromDirection:(TMsgDirection)direction {
     if (direction == MsgDirectionIncoming) {
         _duration.rtlAlignment = TUITextRTLAlignmentLeading;
-        _duration.textColor = TUIChatDynamicColor(@"chat_voice_message_recv_duration_time_color", @"#000000");
+        _duration.textColor = [UIColor tui_colorWithHex:@"#1C1C1E"];
     } else {
         _duration.rtlAlignment = TUITextRTLAlignmentTrailing;
-        _duration.textColor = TUIChatDynamicColor(@"chat_voice_message_send_duration_time_color", @"#000000");
+        _duration.textColor = [UIColor tui_colorWithHex:@"#1C1C1E"];
     }
 }
 
@@ -116,7 +117,8 @@
     [self.voice sizeToFit];
     [self.voice mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.voiceData.voiceTop);
-        make.width.height.mas_equalTo(_voiceData.voiceHeight);
+        make.width.mas_equalTo(@14);
+        make.height.mas_equalTo(@14);
         if (self.voiceData.direction == MsgDirectionOutgoing) {
             make.trailing.mas_equalTo(-self.voiceData.cellLayout.bubbleInsets.right);
         } else {
@@ -139,9 +141,9 @@
         self.voiceReadPoint.hidden = YES;
     } else {
         [self.voiceReadPoint mas_remakeConstraints:^(MASConstraintMaker *make) {
-          make.top.mas_equalTo(self.bubbleView);
-          make.leading.mas_equalTo(self.bubbleView.mas_trailing).mas_offset(1);
-          make.size.mas_equalTo(CGSizeMake(5, 5));
+            make.centerY.mas_equalTo(self.bubbleView.mas_centerY);
+            make.leading.mas_equalTo(self.bubbleView.mas_trailing).mas_offset(10);
+            make.size.mas_equalTo(CGSizeMake(7, 7));
         }];
     }
     BOOL hasRiskContent = self.messageData.innerMessage.hasRiskContent;

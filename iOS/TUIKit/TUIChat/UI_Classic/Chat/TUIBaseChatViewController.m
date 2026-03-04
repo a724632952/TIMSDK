@@ -44,8 +44,7 @@ static UIView *gCustomTopView;
 static UIView *gTopExentsionView;
 static UIView *gGroupPinTopView;
 static CGRect gCustomTopViewRect;
-@interface TUIBaseChatViewController () <TUIBaseMessageControllerDelegate,
-                                         TUIInputControllerDelegate,
+@interface TUIBaseChatViewController () <TUIInputControllerDelegate,
                                          UIImagePickerControllerDelegate,
                                          UIDocumentPickerDelegate,
                                          UINavigationControllerDelegate,
@@ -391,12 +390,14 @@ static CGRect gCustomTopViewRect;
     NSString *conversationID = [self getConversationID];
     NSString *imgUrl = [self getBackgroundImageUrlByConversationID:conversationID];
 
-    if (TUIChatConfig.defaultConfig.backgroudImage) {
-        self.backgroudView.backgroundColor = UIColor.clearColor;
-        self.backgroudView.image = TUIChatConfig.defaultConfig.backgroudImage;
-    } else if (IS_NOT_EMPTY_NSSTRING(imgUrl)) {
-        [self.backgroudView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil];
-    }
+//    if (TUIChatConfig.defaultConfig.backgroudImage) {
+//        self.backgroudView.backgroundColor = UIColor.clearColor;
+//        self.backgroudView.image = TUIChatConfig.defaultConfig.backgroudImage;
+//    } else if (IS_NOT_EMPTY_NSSTRING(imgUrl)) {
+//        [self.backgroudView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil];
+//    }
+//    self.backgroudView.backgroundColor = [UIColor tui_colorWithHex:@"#14151A" alpha:1.0];
+
     CGFloat textViewHeight = TUIChatConfig.defaultConfig.enableMainPageInputBar? TTextView_Height:0;
 
     self.backgroudView.frame =

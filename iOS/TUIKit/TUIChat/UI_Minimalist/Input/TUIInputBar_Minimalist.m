@@ -202,7 +202,6 @@
     if (_inputTextView) {
         [_inputTextView.layer setMasksToBounds:YES];
         [_inputTextView.layer setCornerRadius:_inputTextView.mm_h / 2.0];
-        [_inputTextView.layer setBorderWidth:0.5f];
         [_inputTextView.layer setBorderColor:RGBA(221, 221, 221, 1).CGColor];
     }
 }
