@@ -49,7 +49,7 @@
     _previewData = previewData;
 
     NSString *abstract = [TUIReplyPreviewData displayAbstract:previewData.type abstract:previewData.msgAbstract withFileName:YES isRisk:NO];
-    _titleLabel.text = [[NSString stringWithFormat:@"%@: %@", previewData.sender, abstract] getLocalizableStringWithFaceContent];
+    _titleLabel.text = [[NSString stringWithFormat:@"%@: %@", [self decodeBase64:previewData.sender], abstract] getLocalizableStringWithFaceContent];
     _titleLabel.lineBreakMode = previewData.type == (NSInteger)V2TIM_ELEM_TYPE_FILE ? NSLineBreakByTruncatingMiddle : NSLineBreakByTruncatingTail;
 }
 
@@ -60,8 +60,34 @@
                                                          abstract:previewReferenceData.msgAbstract
                                                      withFileName:YES
                                                            isRisk:NO];
-    _titleLabel.text = [[NSString stringWithFormat:@"%@: %@", previewReferenceData.sender, abstract] getLocalizableStringWithFaceContent];
+    _titleLabel.text = [[NSString stringWithFormat:@"%@: %@",[self decodeBase64:previewReferenceData.sender], abstract] getLocalizableStringWithFaceContent];
     _titleLabel.lineBreakMode = previewReferenceData.type == (NSInteger)V2TIM_ELEM_TYPE_FILE ? NSLineBreakByTruncatingMiddle : NSLineBreakByTruncatingTail;
+}
+
+- (NSString *)decodeBase64:(NSString *)input {
+    if (input == nil || input.length == 0) {
+        return nil;
+    }
+    
+    NSUInteger remainder = input.length % 4;
+    NSMutableString *base64String = [input mutableCopy];
+    
+    if (remainder > 0) {
+        NSUInteger paddingLength = 4 - remainder;
+        for (NSUInteger i = 0; i < paddingLength; i++) {
+            [base64String appendString:@"="];
+        }
+    }
+    
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:base64String
+                                                       options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    if (!data) {
+        return nil;
+    }
+    
+    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return result;
 }
 
 - (UILabel *)titleLabel {

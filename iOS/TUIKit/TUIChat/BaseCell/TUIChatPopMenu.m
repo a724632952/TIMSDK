@@ -79,7 +79,7 @@
 }
 
 - (void)setArrawPosition:(CGPoint)point adjustHeight:(CGFloat)adjustHeight {
-    point = CGPointMake(point.x, point.y - NavBar_Height);
+    point = CGPointMake(point.x, point.y + StatusBar_Height); //- NavBar_Height);
     self.arrawPoint = point;
     self.adjustHeight = adjustHeight;
 }

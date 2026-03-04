@@ -86,7 +86,7 @@
 - (void)fillWithData:(TUIReferenceMessageCellData *)data {
     [super fillWithData:data];
     self.referenceData = data;
-    self.senderLabel.text = [NSString stringWithFormat:@"%@:", data.sender];
+    self.senderLabel.text = [NSString stringWithFormat:@"%@:", [TUIReferenceMessageCell decodeBase64:data.sender]];
     self.selectContent = data.content;
     self.textView.attributedText = [data.content getFormatEmojiStringWithFont:self.textView.font emojiLocations:self.referenceData.emojiLocations];
 
@@ -418,7 +418,7 @@
 
     // Calculate the size of label which displays the sender's displayname
     CGSize senderSize = [@"0" sizeWithAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:12.0]}];
-    CGRect senderRect = [[NSString stringWithFormat:@"%@:",referenceCellData.sender] boundingRectWithSize:CGSizeMake(quoteMaxWidth, senderSize.height)
+    CGRect senderRect = [[NSString stringWithFormat:@"%@:",[self decodeBase64:referenceCellData.sender]] boundingRectWithSize:CGSizeMake(quoteMaxWidth, senderSize.height)
                                                                options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                             attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:12.0]}
                                                                context:nil];
@@ -483,6 +483,32 @@
     referenceCellData.quoteSize = CGSizeMake(quoteWidth, quoteHeight);
 
     return size;
+}
+
++ (NSString *)decodeBase64:(NSString *)input {
+    if (input == nil || input.length == 0) {
+        return nil;
+    }
+    
+    NSUInteger remainder = input.length % 4;
+    NSMutableString *base64String = [input mutableCopy];
+    
+    if (remainder > 0) {
+        NSUInteger paddingLength = 4 - remainder;
+        for (NSUInteger i = 0; i < paddingLength; i++) {
+            [base64String appendString:@"="];
+        }
+    }
+    
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:base64String
+                                                       options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    if (!data) {
+        return nil;
+    }
+    
+    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return result;
 }
 
 @end
