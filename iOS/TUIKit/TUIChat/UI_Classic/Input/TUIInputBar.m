@@ -30,6 +30,9 @@
 @property(nonatomic, assign) BOOL isFocusOn;
 @property(nonatomic, strong) NSTimer *sendTypingStatusTimer;
 @property(nonatomic, assign) BOOL allowSendTypingStatusByChangeWord;
+
+@property (nonatomic, strong) UIView *bgView;
+
 @end
 
 @implementation TUIInputBar
@@ -54,16 +57,17 @@
 
 #pragma mark - UI
 - (void)setupViews {
-    self.backgroundColor = TUIChatDynamicColor(@"chat_input_controller_bg_color", @"#EBF0F6");
+    self.backgroundColor = TUIChatDynamicColor(@"chat_input_controller_bg_color", @"#FFFFFF");
 
     _lineView = [[UIView alloc] init];
     _lineView.backgroundColor = TIMCommonDynamicColor(@"separator_color", @"#FFFFFF");
+    _lineView.hidden = YES;
     [self addSubview:_lineView];
 
     _micButton = [[UIButton alloc] init];
     [_micButton addTarget:self action:@selector(onMicButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_micButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewInputVoice_img", @"ToolViewInputVoice") forState:UIControlStateNormal];
-    [_micButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewInputVoiceHL_img", @"ToolViewInputVoiceHL") forState:UIControlStateHighlighted];
+//    [_micButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewInputVoiceHL_img", @"ToolViewInputVoiceHL") forState:UIControlStateHighlighted];
     [self addSubview:_micButton];
 
     _faceButton = [[UIButton alloc] init];
@@ -86,27 +90,57 @@
     [self addSubview:_moreButton];
 
     _recordButton = [[UIButton alloc] init];
-    [_recordButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+    [_recordButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [_recordButton addTarget:self action:@selector(onRecordButtonTouchDown:) forControlEvents:UIControlEventTouchDown];
     [_recordButton addTarget:self action:@selector(onRecordButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
     [_recordButton addTarget:self action:@selector(onRecordButtonTouchCancel:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
     [_recordButton addTarget:self action:@selector(onRecordButtonTouchDragExit:) forControlEvents:UIControlEventTouchDragExit];
     [_recordButton addTarget:self action:@selector(onRecordButtonTouchDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
     [_recordButton setTitle:TIMCommonLocalizableString(TUIKitInputHoldToTalk) forState:UIControlStateNormal];
-    [_recordButton setTitleColor:TUIChatDynamicColor(@"chat_input_text_color", @"#000000") forState:UIControlStateNormal];
+    [_recordButton setTitleColor:[UIColor tui_colorWithHex:@"#AEAEB2" alpha:1.0] forState:UIControlStateNormal];
+    _recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     _recordButton.hidden = YES;
     [self addSubview:_recordButton];
+    https://image.wanasa.live/12311718.jpg?imageMogr2/format/webp
+    _sendButton = [[UIButton alloc] init];
+    [_sendButton setImage:TUIChatBundleThemeImage(@"chat_send_button_enable_icon", @"chat_send_button_enable_icon") forState:UIControlStateNormal];
+    [_sendButton setImage:TUIChatBundleThemeImage(@"chat_send_button_disable_icon", @"chat_send_button_disable_icon") forState:UIControlStateDisabled];
+    _sendButton.enabled = NO;
+    [_sendButton addTarget:self action:@selector(onClickSendTouch:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self addSubview:_sendButton];
+    
+    _bgView = [[UIView alloc] init];
+    _bgView.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
+    _bgView.layer.cornerRadius = 18.5;
+    _bgView.layer.masksToBounds = YES;
+    [self addSubview:_bgView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputBgTap:)];
+    [_bgView addGestureRecognizer:tap];
+    _bgView.userInteractionEnabled = YES;
 
     _inputTextView = [[TUIResponderTextView alloc] init];
+//    _inputTextView.layer.cornerRadius = 18.5;
+//    _inputTextView.layer.masksToBounds = YES;
+    _inputTextView.tintColor = TUIChatDynamicColor(@"chat_input_tint_color", @"#FFCC00");
     _inputTextView.delegate = self;
     [_inputTextView setFont:kTUIInputNoramlFont];
-    _inputTextView.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#FFFFFF");
+    _inputTextView.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     _inputTextView.textColor = TUIChatDynamicColor(@"chat_input_text_color", @"#000000");
     _inputTextView.textAlignment = isRTL()?NSTextAlignmentRight: NSTextAlignmentLeft;
+    _inputTextView.textContainerInset = UIEdgeInsetsMake(0, 14.5, 0.0, 14.5);
     [_inputTextView setReturnKeyType:UIReturnKeySend];
     [self addSubview:_inputTextView];
+    
+    _moreButton.hidden = YES;
+    _faceButton.hidden = YES;
 
     [self applyBorderTheme];
+}
+
+- (void)inputBgTap:(UITapGestureRecognizer *)tap {
+    [_inputTextView becomeFirstResponder];
 }
 
 - (void)onThemeChanged {
@@ -116,16 +150,12 @@
 - (void)applyBorderTheme {
     if (_recordButton) {
         [_recordButton.layer setMasksToBounds:YES];
-        [_recordButton.layer setCornerRadius:4.0f];
-        [_recordButton.layer setBorderWidth:1.0f];
-        [_recordButton.layer setBorderColor:TIMCommonDynamicColor(@"separator_color", @"#DBDBDB").CGColor];
+        [_recordButton.layer setCornerRadius:18.5f];
     }
 
     if (_inputTextView) {
         [_inputTextView.layer setMasksToBounds:YES];
-        [_inputTextView.layer setCornerRadius:4.0f];
-        [_inputTextView.layer setBorderWidth:0.5f];
-        [_inputTextView.layer setBorderColor:TIMCommonDynamicColor(@"separator_color", @"#DBDBDB").CGColor];
+        [_inputTextView.layer setCornerRadius:18.5f];
     }
 }
 
@@ -161,11 +191,16 @@
     }];
     [_recordButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(_micButton.mas_trailing).mas_offset(10);
-        make.trailing.mas_equalTo(_faceButton.mas_leading).mas_offset(-10);;
-        make.height.mas_equalTo(TTextView_TextView_Height_Min);
+        make.trailing.mas_equalTo(self.mas_trailing).mas_offset(-10);;
+        make.height.mas_equalTo(TTextView_TextView_Height_Min + 24.0);
         make.centerY.mas_equalTo(self);
     }];
-
+    [_sendButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.mas_equalTo(self.mas_trailing).mas_offset(6.0);
+        make.size.mas_equalTo(@40.0);
+        make.centerY.mas_equalTo(self);
+    }];
+    
     [_inputTextView mas_remakeConstraints:^(MASConstraintMaker *make) {
         if (self.isFromReplyPage) {
             make.leading.mas_equalTo(self.mas_leading).mas_offset(10);
@@ -173,9 +208,15 @@
         else {
             make.leading.mas_equalTo(_micButton.mas_trailing).mas_offset(10);
         }
-        make.trailing.mas_equalTo(_faceButton.mas_leading).mas_offset(-10);;
+        make.trailing.mas_equalTo(self.mas_trailing).mas_offset(-32);;
         make.height.mas_equalTo(TTextView_TextView_Height_Min);
         make.centerY.mas_equalTo(self);
+    }];
+    [_bgView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.leading.mas_equalTo(_inputTextView.mas_leading);
+        make.trailing.mas_equalTo(_inputTextView.mas_trailing);
+        make.top.equalTo(_inputTextView.mas_top).offset(-12.0);
+        make.bottom.equalTo(_inputTextView.mas_bottom).offset(12.0);
     }];
 }
 
@@ -215,9 +256,11 @@
 - (void)onMicButtonClicked:(UIButton *)sender {
     _recordButton.hidden = NO;
     _inputTextView.hidden = YES;
+    _bgView.hidden = YES;
+    _sendButton.hidden = YES;
     _micButton.hidden = YES;
     _keyboardButton.hidden = NO;
-    _faceButton.hidden = NO;
+    _faceButton.hidden = YES;
     [_inputTextView resignFirstResponder];
     [self layoutButton:TTextView_Height];
     if (_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchMore:)]) {
@@ -233,7 +276,9 @@
     _keyboardButton.hidden = YES;
     _recordButton.hidden = YES;
     _inputTextView.hidden = NO;
-    _faceButton.hidden = NO;
+    _bgView.hidden = NO;
+    _sendButton.hidden = NO;
+    _faceButton.hidden = YES;
     [self layoutButton:_inputTextView.frame.size.height + 2 * TTextView_Margin];
     if (_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchKeyboard:)]) {
         [_delegate inputBarDidTouchKeyboard:self];
@@ -246,6 +291,8 @@
     _keyboardButton.hidden = NO;
     _recordButton.hidden = YES;
     _inputTextView.hidden = NO;
+    _bgView.hidden = NO;
+    _sendButton.hidden = NO;
     if (_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchFace:)]) {
         [_delegate inputBarDidTouchFace:self];
     }
@@ -265,7 +312,7 @@
 }
 
 - (void)onRecordButtonTouchUpInside:(UIButton *)sender {
-    self.recordButton.backgroundColor = [UIColor clearColor];
+    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     [self.recordButton setTitle:TIMCommonLocalizableString(TUIKitInputHoldToTalk) forState:UIControlStateNormal];
 
     NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.recordStartTime];
@@ -309,9 +356,16 @@
 - (void)onRecordButtonTouchCancel:(UIButton *)sender {
     [self.recordView removeFromSuperview];
     self.recordView = nil;
-    self.recordButton.backgroundColor = [UIColor clearColor];
+    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     [self.recordButton setTitle:TIMCommonLocalizableString(TUIKitInputHoldToTalk) forState:UIControlStateNormal];
     [self.recorder cancel];
+}
+
+- (void)onClickSendTouch:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(inputBar:didSendText:)]) {
+        [_delegate inputBar:self didSendText:[_inputTextView.textStorage tui_getPlainString]];
+        [self clearInput];
+    }
 }
 
 - (void)onRecordButtonTouchDragExit:(UIButton *)sender {
@@ -342,7 +396,7 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     self.keyboardButton.hidden = YES;
     self.micButton.hidden = NO;
-    self.faceButton.hidden = NO;
+    self.faceButton.hidden = YES;
 
     self.isFocusOn = YES;
     self.allowSendTypingStatusByChangeWord = YES;
@@ -376,6 +430,8 @@
             [_delegate inputTextViewShouldBeginTyping:textView];
         }
     }
+    
+    _sendButton.enabled = textView.text.length > 0;
 
     if (self.isFocusOn && [textView.textStorage tui_getPlainString].length == 0) {
         if (_delegate && [_delegate respondsToSelector:@selector(inputTextViewShouldEndTyping:)]) {
@@ -388,7 +444,6 @@
     CGSize size = [_inputTextView sizeThatFits:CGSizeMake(_inputTextView.frame.size.width, TTextView_TextView_Height_Max)];
     CGFloat oldHeight = _inputTextView.frame.size.height;
     CGFloat newHeight = size.height;
-
     if (newHeight > TTextView_TextView_Height_Max) {
         newHeight = TTextView_TextView_Height_Max;
     }
@@ -404,7 +459,7 @@
                      animations:^{
                        [ws.inputTextView mas_remakeConstraints:^(MASConstraintMaker *make) {
                          make.leading.mas_equalTo(ws.micButton.mas_trailing).mas_offset(10);
-                         make.trailing.mas_equalTo(ws.faceButton.mas_leading).mas_offset(-10);
+                         make.trailing.mas_equalTo(ws.mas_trailing).mas_offset(-32);;
                          make.height.mas_equalTo(newHeight);
                          make.centerY.mas_equalTo(self);
                        }];
@@ -632,7 +687,7 @@
     }];
     self.recordStartTime = [NSDate date];
     [self.recordView setStatus:Record_Status_Recording];
-    self.recordButton.backgroundColor = [UIColor lightGrayColor];
+    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     [self.recordButton setTitle:TIMCommonLocalizableString(TUIKitInputReleaseToSend) forState:UIControlStateNormal];
     [self showHapticFeedback];
 }

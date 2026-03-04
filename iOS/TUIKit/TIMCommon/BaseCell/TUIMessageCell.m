@@ -34,7 +34,7 @@
 - (void)setupSubViews {
     // head
     _avatarView = [[UIImageView alloc] init];
-    _avatarView.contentMode = UIViewContentModeScaleAspectFit;
+    _avatarView.contentMode = UIViewContentModeScaleAspectFill;
     [self.contentView addSubview:_avatarView];
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSelectMessageAvatar:)];
     [_avatarView addGestureRecognizer:tap1];
@@ -228,7 +228,11 @@
           make.centerY.mas_equalTo(self.container.mas_centerY);
           make.size.mas_equalTo(indicatorFrame.size);
         }];
-        self.retryView.frame = self.indicator.frame;
+        [self.retryView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.leading.mas_equalTo(self.container.mas_trailing).mas_offset(8);
+            make.centerY.mas_equalTo(self.container.mas_centerY);
+            make.size.equalTo(@16.0);
+        }];
         self.readReceiptLabel.hidden = YES;
     } else {
         if (!self.messageData.showAvatar) {

@@ -426,7 +426,7 @@ static inline NSBundle *getTUIGetLocalizable(NSString *bundleName) {
 #define TVoiceMessageCell_Margin 12
 #define TVoiceMessageCell_Back_Width_Max (Screen_Width * 0.4)
 #define TVoiceMessageCell_Back_Width_Min 60
-#define TVoiceMessageCell_Duration_Size CGSizeMake(33, 33)
+#define TVoiceMessageCell_Duration_Size CGSizeMake(33, 34)
 
 // group live cell
 #define TGroupLiveMessageCell_ReuseId @"TGroupLiveMessageCell"
@@ -448,11 +448,11 @@ static inline NSBundle *getTUIGetLocalizable(NSString *bundleName) {
 #define TRichTextMessageCell_Height_Default (100)
 
 // text view
-#define TTextView_Height (52)
+#define TTextView_Height (70)
 #define TTextView_Button_Size CGSizeMake(30, 30)
-#define TTextView_Margin 6
+#define TTextView_Margin 26
 #define TTextView_TextView_Height_Min (TTextView_Height - 2 * TTextView_Margin)
-#define TTextView_TextView_Height_Max 80
+#define TTextView_TextView_Height_Max 50
 
 // face view
 #define TFaceView_Height 287

@@ -44,7 +44,7 @@
  *  A: If you want to implement a message style that TUIKit does not support, such as adding a voting link to the message style, you can refer to the
  * documentation: https://cloud.tencent.com/document/product/269/37067
  */
-@interface TUIBaseChatViewController : UIViewController
+@interface TUIBaseChatViewController : UIViewController<TUIBaseMessageControllerDelegate>
 
 @property(nonatomic, strong) TUIChatConversationModel *conversationData;
 
@@ -117,5 +117,7 @@
 + (UIView *)groupPinTopView;
 
 + (UIView *)topAreaBottomView;
+
++ (void)createCachePath;
 
 @end

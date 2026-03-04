@@ -316,7 +316,7 @@ static UIImage *gIncommingErrorBubble;
 
 + (UIImage *)stretchImage:(UIImage *)oldImage {
     UIImage *image = [oldImage rtl_imageFlippedForRightToLeftLayoutDirection];
-    UIEdgeInsets insets = rtlEdgeInsetsWithInsets(UIEdgeInsetsFromString(@"{12,12,12,12}"));
+    UIEdgeInsets insets = rtlEdgeInsetsWithInsets(UIEdgeInsetsFromString(@"{10,10,10,10}"));
     return [image resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
 }
 
@@ -337,7 +337,6 @@ static CGFloat gIncommingBubbleTop = 0;
 + (void)setIncommingBubbleTop:(CGFloat)incommingBubbleTop {
     gIncommingBubbleTop = incommingBubbleTop;
 }
-
 
 + (void)onThemeChanged:(NSNotification *)notice {
     gOutgoingBubble = nil;

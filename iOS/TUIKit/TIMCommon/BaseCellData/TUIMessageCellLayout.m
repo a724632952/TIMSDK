@@ -14,7 +14,7 @@
 - (instancetype)init:(BOOL)isIncomming {
     self = [super init];
     if (self) {
-        self.avatarSize = CGSizeMake(40, 40);
+        self.avatarSize = CGSizeMake(45, 45);
         if (isIncomming) {
             self.avatarInsets = (UIEdgeInsets){
                 .left = 8,
