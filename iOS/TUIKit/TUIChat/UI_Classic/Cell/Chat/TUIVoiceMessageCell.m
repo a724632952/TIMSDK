@@ -102,7 +102,7 @@
         _duration.textColor = [UIColor tui_colorWithHex:@"#1C1C1E"];
     } else {
         _duration.rtlAlignment = TUITextRTLAlignmentTrailing;
-        _duration.textColor = [UIColor tui_colorWithHex:@"#1C1C1E"];
+        _duration.textColor = [UIColor tui_colorWithHex:@"#FFFFFF"];
     }
 }
 

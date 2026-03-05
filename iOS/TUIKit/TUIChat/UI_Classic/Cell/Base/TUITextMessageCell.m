@@ -114,6 +114,59 @@
      
     [super updateConstraints];
     
+    TUIMessageCellLayout *cellLayout = self.messageData.cellLayout;
+    CGSize csize = [self.class getContentSize:self.messageData];
+    CGFloat contentWidth = csize.width;
+    CGFloat contentHeight = csize.height;
+
+    if (!CGSizeEqualToSize(self.messageData.messageContainerAppendSize, CGSizeZero)) {
+        /**
+         * Taking the maximum width between the "emoji reply message" and the text content
+         */
+        contentWidth = MAX(self.messageData.messageContainerAppendSize.width, csize.width);
+        /**
+         * Limit the maximum width to Screen_Width *0.25 * 3
+         */
+        contentWidth = MIN(contentWidth, Screen_Width * 0.25 * 3);
+        contentHeight = csize.height + self.messageData.messageContainerAppendSize.height;
+    }
+    
+    if (self.messageData.direction == MsgDirectionIncoming) {
+        [self.avatarView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            if (self.messageData.showCheckBox) {
+                make.leading.mas_equalTo(self.selectedIcon.mas_trailing).mas_offset(cellLayout.avatarInsets.left);
+            } else {
+                make.leading.mas_equalTo(self.contentView.mas_leading).mas_offset(cellLayout.avatarInsets.left);
+            }
+            make.bottom.mas_equalTo(self.container.mas_bottom);
+            make.size.mas_equalTo(cellLayout.avatarSize);
+        }];
+
+        [self.container mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.leading.mas_equalTo(self.avatarView.mas_trailing).mas_offset(cellLayout.messageInsets.left);
+            make.top.mas_equalTo(cellLayout.messageInsets.top);
+            make.width.mas_equalTo(contentWidth);
+            make.height.mas_equalTo(contentHeight);
+        }];
+
+        self.readReceiptLabel.hidden = YES;
+    } else {
+        if (!self.messageData.showAvatar) {
+            cellLayout.avatarSize = CGSizeZero;
+        }
+        [self.avatarView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.mas_equalTo(self.contentView.mas_trailing).mas_offset(-cellLayout.avatarInsets.right);
+            make.bottom.mas_equalTo(self.container.mas_bottom);
+            make.size.mas_equalTo(cellLayout.avatarSize);
+        }];
+        [self.container mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(cellLayout.avatarInsets.top);
+            make.trailing.mas_equalTo(self.avatarView.mas_leading).mas_offset(-cellLayout.messageInsets.right);
+            make.width.mas_equalTo(contentWidth);
+            make.height.mas_equalTo(contentHeight);
+        }];
+    }
+
     [self.textView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(self.bubbleView.mas_leading).mas_offset(self.textData.textOrigin.x);
         make.top.mas_equalTo(self.bubbleView.mas_top).mas_offset(self.textData.textOrigin.y);
