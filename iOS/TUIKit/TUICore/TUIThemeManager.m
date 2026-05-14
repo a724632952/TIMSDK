@@ -125,22 +125,23 @@
     if (theme) {
         return [theme dynamicColor:colorKey defaultColor:hex];
     } else {
-        if (@available(iOS 13.0, *)) {
-            return [UIColor colorWithDynamicProvider:^UIColor *_Nonnull(UITraitCollection *_Nonnull traitCollection) {
-              switch (traitCollection.userInterfaceStyle) {
-                  case UIUserInterfaceStyleDark:
-                      if(darkTheme){
-                          return [darkTheme dynamicColor:colorKey defaultColor:hex];
-                      }
-                  case UIUserInterfaceStyleLight:
-                  case UIUserInterfaceStyleUnspecified:
-                  default:
-                      return [UIColor tui_colorWithHex:hex];
-              }
-            }];
-        } else {
+        //TODO: 临时去除dark模式的颜色修改
+//        if (@available(iOS 13.0, *)) {
+//            return [UIColor colorWithDynamicProvider:^UIColor *_Nonnull(UITraitCollection *_Nonnull traitCollection) {
+//              switch (traitCollection.userInterfaceStyle) {
+//                  case UIUserInterfaceStyleDark:
+//                      if(darkTheme){
+//                          return [darkTheme dynamicColor:colorKey defaultColor:hex];
+//                      }
+//                  case UIUserInterfaceStyleLight:
+//                  case UIUserInterfaceStyleUnspecified:
+//                  default:
+//                      return [UIColor tui_colorWithHex:hex];
+//              }
+//            }];
+//        } else {
             return [UIColor tui_colorWithHex:hex];
-        }
+//        }
     }
 }
 
@@ -187,22 +188,23 @@
 }
 
 + (UIImage *)imageWithImageLight:(UIImage *)lightImage dark:(UIImage *)darkImage {
-    if (@available(iOS 13.0, *)) {
-        UITraitCollection *const scaleTraitCollection = [UITraitCollection currentTraitCollection];
-        UITraitCollection *const darkUnscaledTraitCollection = [UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleDark];
-        UITraitCollection *const darkScaledTraitCollection =
-            [UITraitCollection traitCollectionWithTraitsFromCollections:@[ scaleTraitCollection, darkUnscaledTraitCollection ]];
-        UIImage *image = [lightImage
-            imageWithConfiguration:[lightImage.configuration
-                                       configurationWithTraitCollection:[UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleLight]]];
-        darkImage = [darkImage
-            imageWithConfiguration:[darkImage.configuration
-                                       configurationWithTraitCollection:[UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleDark]]];
-        [image.imageAsset registerImage:darkImage withTraitCollection:darkScaledTraitCollection];
-        return image;
-    } else {
+    //TODO: 临时去除dark模式的图片修改
+//    if (@available(iOS 13.0, *)) {
+//        UITraitCollection *const scaleTraitCollection = [UITraitCollection currentTraitCollection];
+//        UITraitCollection *const darkUnscaledTraitCollection = [UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleDark];
+//        UITraitCollection *const darkScaledTraitCollection =
+//            [UITraitCollection traitCollectionWithTraitsFromCollections:@[ scaleTraitCollection, darkUnscaledTraitCollection ]];
+//        UIImage *image = [lightImage
+//            imageWithConfiguration:[lightImage.configuration
+//                                       configurationWithTraitCollection:[UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleLight]]];
+//        darkImage = [darkImage
+//            imageWithConfiguration:[darkImage.configuration
+//                                       configurationWithTraitCollection:[UITraitCollection traitCollectionWithUserInterfaceStyle:UIUserInterfaceStyleDark]]];
+//        [image.imageAsset registerImage:darkImage withTraitCollection:darkScaledTraitCollection];
+//        return image;
+//    } else {
         return lightImage;
-    }
+//    }
 }
 
 @end
