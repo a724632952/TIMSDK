@@ -231,6 +231,23 @@
     }
 }
 
+- (void)inputBarDidTouchPhoto:(TUIInputBar *)textView {
+    if (_status == Input_Status_Input_Face) {
+        [self hideFaceAnimation];
+    } else if (_status == Input_Status_Input_More) {
+        [self hideMoreAnimation];
+    }
+    [_inputBar.inputTextView resignFirstResponder];
+    _status = Input_Status_Input;
+    if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]) {
+        CGFloat inputContainerBottom = [self getInputContainerBottom];
+        [_delegate inputController:self didChangeHeight:inputContainerBottom + Bottom_SafeHeight];
+    }
+    if (_delegate && [_delegate respondsToSelector:@selector(inputControllerDidClickPhoto:)]) {
+        [_delegate inputControllerDidClickPhoto:self];
+    }
+}
+
 - (void)inputBarDidTouchMore:(TUIInputBar *)textView {
     if (_status == Input_Status_Input_More) {
         return;

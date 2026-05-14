@@ -73,6 +73,9 @@
 
 - (void)inputControllerDidClickMore:(TUIInputController *)inputController;
 
+@optional
+- (void)inputControllerDidClickPhoto:(TUIInputController *)inputController;
+
 @end
 
 /////////////////////////////////////////////////////////////////////////////////

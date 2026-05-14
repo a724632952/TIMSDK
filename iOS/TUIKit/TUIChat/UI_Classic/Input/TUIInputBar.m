@@ -89,6 +89,14 @@
     [_moreButton setImage:TUIChatBundleThemeImage(@"chat_TypeSelectorBtnHL_Black_img", @"TypeSelectorBtnHL_Black") forState:UIControlStateHighlighted];
     [self addSubview:_moreButton];
 
+    _photoButton = [[UIButton alloc] init];
+    [_photoButton addTarget:self action:@selector(onPhotoButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *photoButtonImage = [[UIImage imageWithContentsOfFile:TUIChatImagePath(@"input_bar_picture_button_icon")] imageWithTintColor:[UIColor tui_colorWithHex:@"#666666"] renderingMode:UIImageRenderingModeAlwaysTemplate];
+    [_photoButton setImage:photoButtonImage forState:UIControlStateNormal];
+    [_photoButton setImage:photoButtonImage forState:UIControlStateHighlighted];
+    _photoButton.tintColor = [UIColor tui_colorWithHex:@"#666666"];
+    [self addSubview:_photoButton];
+
     _recordButton = [[UIButton alloc] init];
     [_recordButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [_recordButton addTarget:self action:@selector(onRecordButtonTouchDown:) forControlEvents:UIControlEventTouchDown];
@@ -101,7 +109,6 @@
     _recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     _recordButton.hidden = YES;
     [self addSubview:_recordButton];
-    https://image.wanasa.live/12311718.jpg?imageMogr2/format/webp
     _sendButton = [[UIButton alloc] init];
     [_sendButton setImage:TUIChatBundleThemeImage(@"chat_send_button_enable_icon", @"chat_send_button_enable_icon") forState:UIControlStateNormal];
     [_sendButton setImage:TUIChatBundleThemeImage(@"chat_send_button_disable_icon", @"chat_send_button_disable_icon") forState:UIControlStateDisabled];
@@ -132,6 +139,14 @@
     _inputTextView.textContainerInset = UIEdgeInsetsMake(0, 14.5, 0.0, 14.5);
     [_inputTextView setReturnKeyType:UIReturnKeySend];
     [self addSubview:_inputTextView];
+
+    [self bringSubviewToFront:_photoButton];
+    [self bringSubviewToFront:_sendButton];
+    [self bringSubviewToFront:_micButton];
+    [self bringSubviewToFront:_faceButton];
+    [self bringSubviewToFront:_moreButton];
+    [self bringSubviewToFront:_keyboardButton];
+    [self bringSubviewToFront:_recordButton];
     
     _moreButton.hidden = YES;
     _faceButton.hidden = YES;
@@ -184,6 +199,13 @@
         make.size.mas_equalTo(buttonSize);
         make.centerY.mas_equalTo(self);
     }];
+
+    [_photoButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.mas_equalTo(_inputTextView.mas_trailing).mas_offset(-10);
+        make.size.mas_equalTo(buttonSize);
+        make.centerY.mas_equalTo(self);
+    }];
+
     [_faceButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.trailing.mas_equalTo(_moreButton.mas_leading).mas_offset(- TTextView_Margin);
         make.size.mas_equalTo(buttonSize);
@@ -218,6 +240,8 @@
         make.top.equalTo(_inputTextView.mas_top).offset(-12.0);
         make.bottom.equalTo(_inputTextView.mas_bottom).offset(12.0);
     }];
+
+    [self updatePhotoButtonVisibility];
 }
 
 - (void)layoutButton:(CGFloat)height {
@@ -252,6 +276,13 @@
     }
 }
 
+- (void)updatePhotoButtonVisibility {
+    BOOL shouldShowPhoto = !self.isFromReplyPage && !self.inputTextView.hidden && !self.inputTextView.isFirstResponder;
+    self.photoButton.hidden = !shouldShowPhoto;
+
+    [self layoutIfNeeded];
+}
+
 #pragma mark - Event response
 - (void)onMicButtonClicked:(UIButton *)sender {
     _recordButton.hidden = NO;
@@ -263,12 +294,19 @@
     _faceButton.hidden = YES;
     [_inputTextView resignFirstResponder];
     [self layoutButton:TTextView_Height];
-    if (_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchMore:)]) {
+    if (_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchVoice:)]) {
         [_delegate inputBarDidTouchVoice:self];
     }
     [_keyboardButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(_micButton);
     }];
+}
+
+- (void)onPhotoButtonClicked:(UIButton *)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(inputBarDidTouchPhoto:)]) {
+        [self.inputTextView resignFirstResponder];
+        [self.delegate inputBarDidTouchPhoto:self];
+    }
 }
 
 - (void)onKeyboardButtonClicked:(UIButton *)sender {
@@ -397,6 +435,7 @@
     self.keyboardButton.hidden = YES;
     self.micButton.hidden = NO;
     self.faceButton.hidden = YES;
+    [self updatePhotoButtonVisibility];
 
     self.isFocusOn = YES;
     self.allowSendTypingStatusByChangeWord = YES;
@@ -418,6 +457,7 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     self.isFocusOn = NO;
+    [self updatePhotoButtonVisibility];
     if (_delegate && [_delegate respondsToSelector:@selector(inputTextViewShouldEndTyping:)]) {
         [_delegate inputTextViewShouldEndTyping:textView];
     }
@@ -556,6 +596,7 @@
 - (void)clearInput {
     [_inputTextView.textStorage deleteCharactersInRange:NSMakeRange(0, _inputTextView.textStorage.length)];
     [self textViewDidChange:_inputTextView];
+    [self updatePhotoButtonVisibility];
 }
 
 - (NSString *)getInput {
@@ -623,6 +664,7 @@
 
 - (void)updateTextViewFrame {
     [self textViewDidChange:[UITextView new]];
+    [self updatePhotoButtonVisibility];
 }
 
 - (void)changeToKeyboard {
@@ -645,6 +687,7 @@
     [self resetTextStyle];
 
     [self updateTextViewFrame];
+    [self updatePhotoButtonVisibility];
 
 }
 

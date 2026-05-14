@@ -916,6 +916,10 @@ static CGRect gCustomTopViewRect;
                                                 actionController:self];
 }
 
+- (void)inputControllerDidClickPhoto:(TUIInputController *)inputController {
+    [self onSelectPhotoMoreCellData];
+}
+
 #pragma mark - TUIBaseMessageControllerDelegate
 - (void)didTapInMessageController:(TUIBaseMessageController *)controller {
     [self.inputController reset];

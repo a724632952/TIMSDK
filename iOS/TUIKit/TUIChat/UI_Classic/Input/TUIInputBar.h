@@ -46,6 +46,11 @@
 - (void)inputBarDidTouchVoice:(TUIInputBar *)textView;
 
 /**
+ *  Callback after clicking the picture button.
+ */
+- (void)inputBarDidTouchPhoto:(TUIInputBar *)textView;
+
+/**
  *  Callback when input bar height changes
  *  This callback is fired when the InputBar height changes when you click the voice button, emoji button, "+" button, or call out/retract the keyboard
  *  You can use this callback to achieve: UI layout adjustment when InputBar height changes through this callback function.
@@ -141,6 +146,12 @@
  *  A button that, when clicked, opens up more menu options
  */
 @property(nonatomic, strong) UIButton *moreButton;
+
+/**
+ *  Photo button
+ *  Switch to photo input state after clicking
+ */
+@property(nonatomic, strong) UIButton *photoButton;
 
 /**
  *  Record button, long press the button to start recording
