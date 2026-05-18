@@ -73,6 +73,7 @@
     self.textView.tuiTextViewDelegate = self;
     self.textView.font = [UIFont systemFontOfSize:16.0];
     self.textView.textColor = TUIChatDynamicColor(@"chat_reference_message_content_text_color", @"#000000");
+    self.textView.dataDetectorTypes = UIDataDetectorTypeNone;
 
     [self.bubbleView addSubview:self.textView];
 }
@@ -151,11 +152,11 @@
     }];
 
     if (referenceData.direction == MsgDirectionIncoming) {
-        self.textView.textColor = TUIChatDynamicColor(@"chat_reference_message_content_recv_text_color", @"#000000");
+        self.textView.textColor = [UIColor tui_colorWithHex:@"#000000"];// TUIChatDynamicColor(@"chat_reference_message_content_recv_text_color", @"#000000");
         self.senderLabel.textColor = TUIChatDynamicColor(@"chat_reference_message_quoteView_recv_text_color", @"#888888");
         self.quoteView.backgroundColor = TUIChatDynamicColor(@"chat_reference_message_quoteView_bg_color", @"#4444440c");
     } else {
-        self.textView.textColor = TUIChatDynamicColor(@"chat_reference_message_content_text_color", @"#000000");
+        self.textView.textColor = [UIColor tui_colorWithHex:@"FFFFFF"];//TUIChatDynamicColor(@"chat_reference_message_content_text_color", @"#000000");
         self.senderLabel.textColor = TUIChatDynamicColor(@"chat_reference_message_quoteView_text_color", @"#888888");
         self.quoteView.backgroundColor = TUIChatDynamicColor(@"chat_reference_message_quoteView_bg_color", @"#4444440c");
     }

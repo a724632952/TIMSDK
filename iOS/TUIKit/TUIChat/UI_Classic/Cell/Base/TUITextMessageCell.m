@@ -39,6 +39,8 @@
         self.textView.delegate = self;
         self.textView.tuiTextViewDelegate = self;
         self.bubbleView.userInteractionEnabled = YES;
+        //关闭textView对内容类型的自动识别
+        self.textView.dataDetectorTypes = UIDataDetectorTypeNone;
         [self.bubbleView addSubview:self.textView];
         
         self.bottomContainer = [[UIView alloc] init];
@@ -385,8 +387,9 @@ static UIFont *gIncommingTextFont;
 }
 
 + (void)onThemeChanged {
-    gOutgoingTextColor = nil;
-    gIncommingTextColor = nil;
+    //注释时为了关闭自动重制了文字颜色
+//    gOutgoingTextColor = nil;
+//    gIncommingTextColor = nil;
 }
 
 @end
