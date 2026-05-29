@@ -373,7 +373,8 @@
         @strongify(self);
         [self reloadUIMessage:cellData];
         [self setUIMessageStatus:cellData status:Msg_Status_Fail];
-        [self makeSendErrorHud:code desc:desc];
+        //TODO: 去除失败提示
+//        [self makeSendErrorHud:code desc:desc];
         
         NSDictionary *param = @{TUICore_TUIChatNotify_SendMessageSubKey_Code : @(code),
                                 TUICore_TUIChatNotify_SendMessageSubKey_Desc : desc};
