@@ -30,6 +30,7 @@
 #import "TUITextReplyQuoteView.h"
 #import "TUIVideoReplyQuoteView.h"
 #import "TUIVoiceReplyQuoteView.h"
+#import "ThemeCustomConfig.h"
 
 #ifndef CGFLOAT_CEIL
 #ifdef CGFLOAT_IS_DOUBLE
@@ -152,13 +153,13 @@
     }];
 
     if (referenceData.direction == MsgDirectionIncoming) {
-        self.textView.textColor = [UIColor tui_colorWithHex:@"#000000"];// TUIChatDynamicColor(@"chat_reference_message_content_recv_text_color", @"#000000");
-        self.senderLabel.textColor = TUIChatDynamicColor(@"chat_reference_message_quoteView_recv_text_color", @"#888888");
-        self.quoteView.backgroundColor = TUIChatDynamicColor(@"chat_reference_message_quoteView_bg_color", @"#4444440c");
+        self.textView.textColor = [ThemeCustomConfig sharedConfig].textMessageTextColor;  // TUIChatDynamicColor(@"chat_reference_message_content_recv_text_color", @"#000000");
+        self.senderLabel.textColor = [ThemeCustomConfig sharedConfig].secondary; //TUIChatDynamicColor(@"chat_reference_message_quoteView_recv_text_color", @"#888888");
+        self.quoteView.backgroundColor = [ThemeCustomConfig sharedConfig].tertiaryOnLight;// TUIChatDynamicColor(@"chat_reference_message_quoteView_bg_color", @"#4444440c");
     } else {
         self.textView.textColor = [UIColor tui_colorWithHex:@"FFFFFF"];//TUIChatDynamicColor(@"chat_reference_message_content_text_color", @"#000000");
-        self.senderLabel.textColor = TUIChatDynamicColor(@"chat_reference_message_quoteView_text_color", @"#888888");
-        self.quoteView.backgroundColor = TUIChatDynamicColor(@"chat_reference_message_quoteView_bg_color", @"#4444440c");
+        self.senderLabel.textColor = [ThemeCustomConfig sharedConfig].secondary; // TUIChatDynamicColor(@"chat_reference_message_quoteView_text_color", @"#888888");
+        self.quoteView.backgroundColor = [ThemeCustomConfig sharedConfig].tertiaryOnLight;//TUIChatDynamicColor(@"chat_reference_message_quoteView_bg_color", @"#4444440c");
     }
     if (referenceData.textColor) {
         self.textView.textColor = referenceData.textColor;

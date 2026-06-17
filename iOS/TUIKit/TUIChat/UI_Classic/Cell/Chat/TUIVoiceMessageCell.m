@@ -10,6 +10,7 @@
 #import <TIMCommon/TIMDefine.h>
 #import <TUICore/TUIThemeManager.h>
 #import <TUICore/TUICore.h>
+#import "ThemeCustomConfig.h"
 
 @implementation TUIVoiceMessageCell
 
@@ -99,7 +100,7 @@
 - (void)applyStyleFromDirection:(TMsgDirection)direction {
     if (direction == MsgDirectionIncoming) {
         _duration.rtlAlignment = TUITextRTLAlignmentLeading;
-        _duration.textColor = [UIColor tui_colorWithHex:@"#1C1C1E"];
+        _duration.textColor = [ThemeCustomConfig sharedConfig].voiceMessageTextColor; //[UIColor tui_colorWithHex:@"#1C1C1E"];
     } else {
         _duration.rtlAlignment = TUITextRTLAlignmentTrailing;
         _duration.textColor = [UIColor tui_colorWithHex:@"#FFFFFF"];

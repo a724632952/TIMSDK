@@ -9,6 +9,8 @@
 #import "TUIVoiceMessageCellData.h"
 #import <TIMCommon/TIMDefine.h>
 #import <TUICore/TUIThemeManager.h>
+#import "ThemeCustomConfig.h"
+
 @import AVFoundation;
 
 @interface TUIVoiceMessageCellData () <AVAudioPlayerDelegate>
@@ -47,21 +49,38 @@
     if (self) {
         if (direction == MsgDirectionIncoming) {
             self.cellLayout = [TUIMessageCellLayout incommingVoiceMessageLayout];
-            _voiceImage = TUIChatDynamicImage(@"chat_voice_message_receiver_voice_normal_img",
-                                              [[TUIImageCache sharedInstance] getResourceFromCache:TUIChatImagePath(@"message_voice_receiver_normal")]);
-            _voiceImage = [_voiceImage rtl_imageFlippedForRightToLeftLayoutDirection];
-            _voiceAnimationImages = [NSArray arrayWithObjects:[self.class formatImageByName:@"message_voice_receiver_playing_1"],
-                                             [self.class formatImageByName:@"message_voice_receiver_playing_2"],
-                                             [self.class formatImageByName:@"message_voice_receiver_playing_3"], nil];
+//            _voiceImage = TUIChatDynamicImage(@"chat_voice_message_receiver_voice_normal_img",
+//                                              [[TUIImageCache sharedInstance] getResourceFromCache:TUIChatImagePath(@"message_voice_receiver_normal")]);
+//            _voiceImage = [_voiceImage rtl_imageFlippedForRightToLeftLayoutDirection];
+//            _voiceAnimationImages = [NSArray arrayWithObjects:[self.class formatImageByName:@"message_voice_receiver_playing_1"],
+//                                             [self.class formatImageByName:@"message_voice_receiver_playing_2"],
+//                                             [self.class formatImageByName:@"message_voice_receiver_playing_3"], nil];
+            
+            ThemeCustomConfig *config = [ThemeCustomConfig sharedConfig];
+            _voiceImage = config.voiceMessageIncomeImage;
+            
+            _voiceAnimationImages = [NSArray arrayWithObjects:
+                                     config.voiceMessageIncomePlayingImage1,
+                                     config.voiceMessageIncomePlayingImage2,
+                                     config.voiceMessageIncomePlayingImage3, nil];
+            
             _voiceTop = [[self class] incommingVoiceTop];
         } else {
             self.cellLayout = [TUIMessageCellLayout outgoingVoiceMessageLayout];
-            _voiceImage = TUIChatDynamicImage(@"chat_voice_message_sender_voice_normal_img",
-                                              [[TUIImageCache sharedInstance] getResourceFromCache:TUIChatImagePath(@"message_voice_sender_normal")]);
-            _voiceImage = [_voiceImage rtl_imageFlippedForRightToLeftLayoutDirection];
-            _voiceAnimationImages = [NSArray arrayWithObjects:[self.class formatImageByName:@"message_voice_sender_playing_1"],
-                                             [self.class formatImageByName:@"message_voice_sender_playing_2"],
-                                             [self.class formatImageByName:@"message_voice_sender_playing_3"], nil];
+//            _voiceImage = TUIChatDynamicImage(@"chat_voice_message_sender_voice_normal_img",
+//                                              [[TUIImageCache sharedInstance] getResourceFromCache:TUIChatImagePath(@"message_voice_sender_normal")]);
+//            _voiceImage = [_voiceImage rtl_imageFlippedForRightToLeftLayoutDirection];
+//            _voiceAnimationImages = [NSArray arrayWithObjects:[self.class formatImageByName:@"message_voice_sender_playing_1"],
+//                                             [self.class formatImageByName:@"message_voice_sender_playing_2"],
+//                                             [self.class formatImageByName:@"message_voice_sender_playing_3"], nil];
+            ThemeCustomConfig *config = [ThemeCustomConfig sharedConfig];
+            _voiceImage = [config.voiceMessageOutgoingImage rtl];
+            
+            _voiceAnimationImages = [NSArray arrayWithObjects:
+                                     [config.voiceMessageOutgoingPlayingImage1 rtl],
+                                     [config.voiceMessageOutgoingPlayingImage2 rtl],
+                                     [config.voiceMessageOutgoingPlayingImage3 rtl], nil];
+
             _voiceTop = [[self class] outgoingVoiceTop];
         }
         _voiceHeight = 21;

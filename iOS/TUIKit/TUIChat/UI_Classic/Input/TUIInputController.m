@@ -26,7 +26,7 @@
 #import "TUIVoiceMessageCell.h"
 #import <TIMCommon/TIMCommonMediator.h>
 #import <TIMCommon/TUIEmojiMeditorProtocol.h>
-
+#import "ThemeCustomConfig.h"
 
 @interface TUIInputController () <TUIInputBarDelegate, TUIMenuViewDelegate, TUIFaceViewDelegate, TUIMoreViewDelegate>
 @property(nonatomic, assign) InputStatus status;
@@ -76,7 +76,14 @@
 }
 
 - (void)setupViews {
-    self.view.backgroundColor = TUIChatDynamicColor(@"chat_input_controller_bg_color", @"#FFFFFF");
+//    self.view.backgroundColor = TUIChatDynamicColor(@"chat_input_controller_bg_color", @"#FFFFFF");
+    self.view.backgroundColor = [ThemeCustomConfig sharedConfig].inputBarBackgroundColor;
+    self.view.layer.cornerRadius = 24.0;
+    self.view.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMaxXMinYCorner;
+    self.view.layer.shadowColor = [[ThemeCustomConfig sharedConfig].inputBarShadowColor CGColor];
+    self.view.layer.shadowRadius = 4.0;
+    self.view.layer.shadowOffset = CGSizeMake(0.0, 4.0);
+    
     _status = Input_Status_Input;
 
     _inputBar = [[TUIInputBar alloc] initWithFrame:CGRectZero];

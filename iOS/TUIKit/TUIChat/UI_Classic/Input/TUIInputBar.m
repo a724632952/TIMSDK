@@ -20,6 +20,7 @@
 #import "ReactiveObjC/ReactiveObjC.h"
 #import "TUIAudioRecorder.h"
 #import "TUIChatConfig.h"
+#import "ThemeCustomConfig.h"
 
 @interface TUIInputBar () <UITextViewDelegate, TUIAudioRecorderDelegate>
 @property(nonatomic, strong) TUIRecordView *recordView;
@@ -58,37 +59,37 @@
 #pragma mark - UI
 - (void)setupViews {
     self.backgroundColor = TUIChatDynamicColor(@"chat_input_controller_bg_color", @"#FFFFFF");
-
+    
     _lineView = [[UIView alloc] init];
     _lineView.backgroundColor = TIMCommonDynamicColor(@"separator_color", @"#FFFFFF");
     _lineView.hidden = YES;
     [self addSubview:_lineView];
-
+    
     _micButton = [[UIButton alloc] init];
     [_micButton addTarget:self action:@selector(onMicButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_micButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewInputVoice_img", @"ToolViewInputVoice") forState:UIControlStateNormal];
-//    [_micButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewInputVoiceHL_img", @"ToolViewInputVoiceHL") forState:UIControlStateHighlighted];
+    //    [_micButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewInputVoiceHL_img", @"ToolViewInputVoiceHL") forState:UIControlStateHighlighted];
     [self addSubview:_micButton];
-
+    
     _faceButton = [[UIButton alloc] init];
     [_faceButton addTarget:self action:@selector(onFaceEmojiButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_faceButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewEmotion_img", @"ToolViewEmotion") forState:UIControlStateNormal];
     [_faceButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewEmotionHL_img", @"ToolViewEmotionHL") forState:UIControlStateHighlighted];
     [self addSubview:_faceButton];
-
+    
     _keyboardButton = [[UIButton alloc] init];
     [_keyboardButton addTarget:self action:@selector(onKeyboardButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_keyboardButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewKeyboard_img", @"ToolViewKeyboard") forState:UIControlStateNormal];
     [_keyboardButton setImage:TUIChatBundleThemeImage(@"chat_ToolViewKeyboardHL_img", @"ToolViewKeyboardHL") forState:UIControlStateHighlighted];
     _keyboardButton.hidden = YES;
     [self addSubview:_keyboardButton];
-
+    
     _moreButton = [[UIButton alloc] init];
     [_moreButton addTarget:self action:@selector(onMoreButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_moreButton setImage:TUIChatBundleThemeImage(@"chat_TypeSelectorBtn_Black_img", @"TypeSelectorBtn_Black") forState:UIControlStateNormal];
     [_moreButton setImage:TUIChatBundleThemeImage(@"chat_TypeSelectorBtnHL_Black_img", @"TypeSelectorBtnHL_Black") forState:UIControlStateHighlighted];
     [self addSubview:_moreButton];
-
+    
     _photoButton = [[UIButton alloc] init];
     [_photoButton addTarget:self action:@selector(onPhotoButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     UIImage *photoButtonImage = [[UIImage imageWithContentsOfFile:TUIChatImagePath(@"input_bar_picture_button_icon")] imageWithTintColor:[UIColor tui_colorWithHex:@"#666666"] renderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -96,7 +97,7 @@
     [_photoButton setImage:photoButtonImage forState:UIControlStateHighlighted];
     _photoButton.tintColor = [UIColor tui_colorWithHex:@"#666666"];
     [self addSubview:_photoButton];
-
+    
     _recordButton = [[UIButton alloc] init];
     [_recordButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
     [_recordButton addTarget:self action:@selector(onRecordButtonTouchDown:) forControlEvents:UIControlEventTouchDown];
@@ -126,10 +127,10 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputBgTap:)];
     [_bgView addGestureRecognizer:tap];
     _bgView.userInteractionEnabled = YES;
-
+    
     _inputTextView = [[TUIResponderTextView alloc] init];
-//    _inputTextView.layer.cornerRadius = 18.5;
-//    _inputTextView.layer.masksToBounds = YES;
+    //    _inputTextView.layer.cornerRadius = 18.5;
+    //    _inputTextView.layer.masksToBounds = YES;
     _inputTextView.tintColor = TUIChatDynamicColor(@"chat_input_tint_color", @"#FFCC00");
     _inputTextView.delegate = self;
     [_inputTextView setFont:kTUIInputNoramlFont];
@@ -139,7 +140,7 @@
     _inputTextView.textContainerInset = UIEdgeInsetsMake(0, 14.5, 0.0, 14.5);
     [_inputTextView setReturnKeyType:UIReturnKeySend];
     [self addSubview:_inputTextView];
-
+    
     [self bringSubviewToFront:_photoButton];
     [self bringSubviewToFront:_sendButton];
     [self bringSubviewToFront:_micButton];
@@ -150,8 +151,29 @@
     
     _moreButton.hidden = YES;
     _faceButton.hidden = YES;
-
+    
     [self applyBorderTheme];
+    [self customThemeUpdate];
+}
+
+- (void)customThemeUpdate {
+    
+    self.backgroundColor = [ThemeCustomConfig sharedConfig].inputBarBackgroundColor;
+    [self.micButton setImage:[ThemeCustomConfig sharedConfig].inputBarMicImage forState:UIControlStateNormal];
+    [self.sendButton setImage:[ThemeCustomConfig sharedConfig].inputBarSendEnableImage forState:UIControlStateNormal];
+    [self.sendButton setImage:[ThemeCustomConfig sharedConfig].inputBarSendDisableImage forState:UIControlStateDisabled];
+    [self.keyboardButton setImage:[ThemeCustomConfig sharedConfig].keyboardTypeImage forState:UIControlStateNormal];
+    
+    [_recordButton setTitleColor:[ThemeCustomConfig sharedConfig].inputBarPlaceholderTextColor forState:UIControlStateNormal];
+    _recordButton.backgroundColor = [ThemeCustomConfig sharedConfig].inputBarInputBackgroundColor;
+    _inputTextView.backgroundColor = [UIColor clearColor];
+    _bgView.backgroundColor = [ThemeCustomConfig sharedConfig].inputBarInputBackgroundColor;
+    _inputTextView.textColor = [ThemeCustomConfig sharedConfig].inputBarTextColor;
+    
+    UIImage *photoButtonImage = [[UIImage imageWithContentsOfFile:TUIChatImagePath(@"input_bar_picture_button_icon")] imageWithTintColor:[ThemeCustomConfig sharedConfig].inputBarTextColor renderingMode:UIImageRenderingModeAlwaysTemplate];
+    [_photoButton setImage:photoButtonImage forState:UIControlStateNormal];
+    [_photoButton setImage:photoButtonImage forState:UIControlStateHighlighted];
+    _photoButton.tintColor = [ThemeCustomConfig sharedConfig].inputBarTextColor;
 }
 
 - (void)inputBgTap:(UITapGestureRecognizer *)tap {
@@ -287,6 +309,7 @@
 - (void)onMicButtonClicked:(UIButton *)sender {
     _recordButton.hidden = NO;
     _inputTextView.hidden = YES;
+    _photoButton.hidden = YES;
     _bgView.hidden = YES;
     _sendButton.hidden = YES;
     _micButton.hidden = YES;
@@ -317,6 +340,7 @@
     _bgView.hidden = NO;
     _sendButton.hidden = NO;
     _faceButton.hidden = YES;
+    _photoButton.hidden = NO;
     [self layoutButton:_inputTextView.frame.size.height + 2 * TTextView_Margin];
     if (_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchKeyboard:)]) {
         [_delegate inputBarDidTouchKeyboard:self];
@@ -350,7 +374,7 @@
 }
 
 - (void)onRecordButtonTouchUpInside:(UIButton *)sender {
-    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
+//    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     [self.recordButton setTitle:TIMCommonLocalizableString(TUIKitInputHoldToTalk) forState:UIControlStateNormal];
 
     NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.recordStartTime];
@@ -394,7 +418,7 @@
 - (void)onRecordButtonTouchCancel:(UIButton *)sender {
     [self.recordView removeFromSuperview];
     self.recordView = nil;
-    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
+//    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     [self.recordButton setTitle:TIMCommonLocalizableString(TUIKitInputHoldToTalk) forState:UIControlStateNormal];
     [self.recorder cancel];
 }
@@ -651,7 +675,7 @@
     _inputTextView.textAlignment = isRTL()?NSTextAlignmentRight: NSTextAlignmentLeft;
 
     // In iOS 15.0 and later, you need set styles again as belows
-    _inputTextView.textColor = kTUIInputNormalTextColor;
+//    _inputTextView.textColor = kTUIInputNormalTextColor;
     _inputTextView.font = kTUIInputNoramlFont;
 }
 
@@ -730,7 +754,7 @@
     }];
     self.recordStartTime = [NSDate date];
     [self.recordView setStatus:Record_Status_Recording];
-    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
+//    self.recordButton.backgroundColor = TUIChatDynamicColor(@"chat_input_bg_color", @"#F2F2F6");
     [self.recordButton setTitle:TIMCommonLocalizableString(TUIKitInputReleaseToSend) forState:UIControlStateNormal];
     [self showHapticFeedback];
 }
