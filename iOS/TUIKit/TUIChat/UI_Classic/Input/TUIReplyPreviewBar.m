@@ -11,6 +11,7 @@
 #import <TIMCommon/TIMDefine.h>
 #import <TUICore/TUIDarkModel.h>
 #import <TUICore/TUIThemeManager.h>
+#import "ThemeCustomConfig.h"
 
 @implementation TUIReplyPreviewBar
 
@@ -22,7 +23,7 @@
 }
 
 - (void)setupViews {
-    self.backgroundColor = TUIChatDynamicColor(@"chat_input_controller_bg_color", @"#EBF0F6");
+    self.backgroundColor = [ThemeCustomConfig sharedConfig].referenceBarColor; //TUIChatDynamicColor(@"chat_input_controller_bg_color", @"#EBF0F6");
     [self addSubview:self.titleLabel];
     [self addSubview:self.closeButton];
 }
@@ -94,7 +95,7 @@
     if (_titleLabel == nil) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = [UIFont systemFontOfSize:16];
-        _titleLabel.textColor = [UIColor colorWithRed:143 / 255.0 green:150 / 255.0 blue:160 / 255.0 alpha:1 / 1.0];
+        _titleLabel.textColor = [ThemeCustomConfig sharedConfig].referenceBarTitleColor;
     }
     return _titleLabel;
 }

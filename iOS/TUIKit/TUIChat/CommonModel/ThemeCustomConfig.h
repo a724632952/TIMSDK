@@ -82,6 +82,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) UIColor *secondaryOnLight;
 @property (nonatomic, strong, nullable) UIColor *tertiaryOnLight;
 
+///ReferencePreview
+@property (nonatomic, strong, nullable) UIColor *referenceBarColor;
+@property (nonatomic, strong, nullable) UIColor *referenceBarTitleColor;
+
 @end
 
 NS_ASSUME_NONNULL_END
