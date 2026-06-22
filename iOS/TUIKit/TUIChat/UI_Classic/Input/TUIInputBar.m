@@ -181,7 +181,7 @@
 }
 
 - (void)onThemeChanged {
-    [self applyBorderTheme];
+//    [self applyBorderTheme];
 }
 
 - (void)applyBorderTheme {

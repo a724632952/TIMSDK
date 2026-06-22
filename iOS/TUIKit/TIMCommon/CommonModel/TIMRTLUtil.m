@@ -94,6 +94,16 @@
     return self;
 }
 
+- (UIImage *)rtl {
+    if (isRTL()) {
+        return [UIImage imageWithCGImage:self.CGImage
+                                   scale:self.scale
+                             orientation:UIImageOrientationUpMirrored];
+    }
+
+    return self;
+}
+
 @end
 @interface UINavigationController (TUIRTL)
 @end

@@ -145,7 +145,7 @@ static NSMutableDictionary *gImageCache;
 }
 
 + (void)onThemeChanged:(NSNotification *)notice {
-    gImageCache = nil;
+//    gImageCache = nil;
 }
 
 @end

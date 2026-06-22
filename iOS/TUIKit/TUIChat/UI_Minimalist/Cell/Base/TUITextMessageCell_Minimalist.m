@@ -320,8 +320,8 @@ static UIFont *gIncommingTextFont;
 }
 
 + (void)onThemeChanged {
-    gOutgoingTextColor = nil;
-    gIncommingTextColor = nil;
+//    gOutgoingTextColor = nil;
+//    gIncommingTextColor = nil;
 }
 
 @end

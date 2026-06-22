@@ -342,15 +342,15 @@ static CGFloat gIncommingBubbleTop = 0;
 }
 
 + (void)onThemeChanged:(NSNotification *)notice {
-    gOutgoingBubble = nil;
-    gOutgoingHighlightedBubble = nil;
-    gOutgoingAnimatedHighlightedAlpha50 = nil;
-    gOutgoingAnimatedHighlightedAlpha20 = nil;
-
-    gIncommingBubble = nil;
-    gIncommingHighlightedBubble = nil;
-    gIncommingAnimatedHighlightedAlpha50 = nil;
-    gIncommingAnimatedHighlightedAlpha20 = nil;
+//    gOutgoingBubble = nil;
+//    gOutgoingHighlightedBubble = nil;
+//    gOutgoingAnimatedHighlightedAlpha50 = nil;
+//    gOutgoingAnimatedHighlightedAlpha20 = nil;
+//
+//    gIncommingBubble = nil;
+//    gIncommingHighlightedBubble = nil;
+//    gIncommingAnimatedHighlightedAlpha50 = nil;
+//    gIncommingAnimatedHighlightedAlpha20 = nil;
 }
 
 @end

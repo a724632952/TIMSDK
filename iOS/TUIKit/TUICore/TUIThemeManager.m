@@ -109,9 +109,9 @@
     if (@available(iOS 13.0, *)) {
         if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
             [NSNotificationCenter.defaultCenter postNotificationName:TUIDidApplyingThemeChangedNotfication object:nil];
-            if ([TUIThemeManager.shareManager respondsToSelector:@selector(allListenerExcuteonApplyThemeMethod:module:)]) {
-                [TUIThemeManager.shareManager performSelector:@selector(allListenerExcuteonApplyThemeMethod:module:) withObject:nil withObject:nil];
-            }
+//            if ([TUIThemeManager.shareManager respondsToSelector:@selector(allListenerExcuteonApplyThemeMethod:module:)]) {
+//                [TUIThemeManager.shareManager performSelector:@selector(allListenerExcuteonApplyThemeMethod:module:) withObject:nil withObject:nil];
+//            }
         }
     }
 }
@@ -400,27 +400,27 @@ static id gShareInstance;
 #ifdef TUIThreadSafe
     dispatch_async(_queue, ^{
 #endif
-      BOOL isAll = NO;
-      NSMutableArray *allKeys = [NSMutableArray arrayWithArray:self.themeResourcePathCache.allKeys];
-      if (module == TUIThemeModuleAll || ((module & TUIThemeModuleAll) == TUIThemeModuleAll)) {
-          isAll = YES;
-      }
-
-      if (isAll) {
-          for (NSNumber *moduleObject in allKeys) {
-              TUIThemeModule tmpModue = (TUIThemeModule)[moduleObject integerValue];
-              [self setCurrentTheme:nil forModule:tmpModue];
-          }
-
-          [NSNotificationCenter.defaultCenter postNotificationName:TUIDidApplyingThemeChangedNotfication object:nil userInfo:nil];
-      } else {
-          for (NSNumber *moduleObject in allKeys) {
-              TUIThemeModule tmpModue = (TUIThemeModule)[moduleObject integerValue];
-              if ((module & tmpModue) == tmpModue) {
-                  [self setCurrentTheme:nil forModule:tmpModue];
-              }
-          }
-      }
+//      BOOL isAll = NO;
+//      NSMutableArray *allKeys = [NSMutableArray arrayWithArray:self.themeResourcePathCache.allKeys];
+//      if (module == TUIThemeModuleAll || ((module & TUIThemeModuleAll) == TUIThemeModuleAll)) {
+//          isAll = YES;
+//      }
+//
+//      if (isAll) {
+//          for (NSNumber *moduleObject in allKeys) {
+//              TUIThemeModule tmpModue = (TUIThemeModule)[moduleObject integerValue];
+//              [self setCurrentTheme:nil forModule:tmpModue];
+//          }
+//
+//          [NSNotificationCenter.defaultCenter postNotificationName:TUIDidApplyingThemeChangedNotfication object:nil userInfo:nil];
+//      } else {
+//          for (NSNumber *moduleObject in allKeys) {
+//              TUIThemeModule tmpModue = (TUIThemeModule)[moduleObject integerValue];
+//              if ((module & tmpModue) == tmpModue) {
+//                  [self setCurrentTheme:nil forModule:tmpModue];
+//              }
+//          }
+//      }
 #ifdef TUIThreadSafe
     });
 #endif
@@ -491,22 +491,22 @@ static id gShareInstance;
 }
 
 - (void)notifyApplyTheme:(TUITheme *)theme module:(TUIThemeModule)module {
-    if (theme == nil) {
-        return;
-    }
-
-    if (![NSThread isMainThread]) {
-        __weak typeof(self) weakSelf = self;
-        dispatch_async(dispatch_get_main_queue(), ^{
-          [weakSelf notifyApplyTheme:theme module:module];
-        });
-        return;
-    }
-
-    [self allListenerExcuteonApplyThemeMethod:theme module:module];
-
-    NSDictionary *userInfo = @{TUIDidApplyingThemeChangedNotficationModuleKey : @(module), TUIDidApplyingThemeChangedNotficationThemeKey : theme};
-    [NSNotificationCenter.defaultCenter postNotificationName:TUIDidApplyingThemeChangedNotfication object:nil userInfo:userInfo];
+//    if (theme == nil) {
+//        return;
+//    }
+//
+//    if (![NSThread isMainThread]) {
+//        __weak typeof(self) weakSelf = self;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//          [weakSelf notifyApplyTheme:theme module:module];
+//        });
+//        return;
+//    }
+//
+//    [self allListenerExcuteonApplyThemeMethod:theme module:module];
+//
+//    NSDictionary *userInfo = @{TUIDidApplyingThemeChangedNotficationModuleKey : @(module), TUIDidApplyingThemeChangedNotficationThemeKey : theme};
+//    [NSNotificationCenter.defaultCenter postNotificationName:TUIDidApplyingThemeChangedNotfication object:nil userInfo:userInfo];
 }
 
 - (void)allListenerExcuteonApplyThemeMethod:(TUITheme *)theme module:(TUIThemeModule)module {

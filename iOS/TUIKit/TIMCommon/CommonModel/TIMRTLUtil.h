@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UIImage *_Nonnull)checkOverturn;
 - (UIImage *)rtl_imageFlippedForRightToLeftLayoutDirection;
+- (UIImage *)rtl;
 @end
 
 typedef NS_ENUM(NSUInteger, TUITextRTLAlignment) {

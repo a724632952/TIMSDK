@@ -52,7 +52,7 @@
 
 #pragma mark - NSNotification
 - (void)onThemeChanged {
-    self.groupAnimationView.layer.borderColor = [TUIConversationDynamicColor(@"conversation_group_bg_color", @"#EBECF0") CGColor];
+//    self.groupAnimationView.layer.borderColor = [TUIConversationDynamicColor(@"conversation_group_bg_color", @"#EBECF0") CGColor];
 }
 
 #pragma mark - SettingDataProvider

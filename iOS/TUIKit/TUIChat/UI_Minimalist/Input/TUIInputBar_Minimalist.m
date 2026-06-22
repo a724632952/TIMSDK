@@ -577,7 +577,7 @@
 }
 
 - (void)onThemeChanged {
-    [self applyBorderTheme];
+//    [self applyBorderTheme];
 }
 
 - (void)addDraftToInputBar:(NSAttributedString *)draft {

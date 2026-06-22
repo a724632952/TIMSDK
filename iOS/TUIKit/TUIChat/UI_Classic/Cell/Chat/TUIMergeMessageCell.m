@@ -325,7 +325,7 @@
 }
 
 - (void)onThemeChanged {
-    [self applyBorderTheme];
+//    [self applyBorderTheme];
 }
 
 - (void)prepareReactTagUI:(UIView *)containerView {

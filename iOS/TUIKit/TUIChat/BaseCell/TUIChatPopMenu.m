@@ -550,6 +550,6 @@
 }
 
 - (void)onThemeChanged {
-    [self applyBorderTheme];
+//    [self applyBorderTheme];
 }
 @end

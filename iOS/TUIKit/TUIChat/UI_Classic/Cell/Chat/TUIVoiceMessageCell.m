@@ -40,6 +40,17 @@
     return self;
 }
 
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if (@available(iOS 13.0, *)) {
+        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self refreshIncomingVoiceAppearance];
+            });
+        }
+    }
+}
+
 - (void)prepareForReuse {
     [super prepareForReuse];
     for (UIView *view in self.bottomContainer.subviews) {
@@ -95,6 +106,20 @@
 
     [self layoutIfNeeded];
 
+}
+
+- (void)refreshIncomingVoiceAppearance {
+    if (self.voiceData.direction != MsgDirectionIncoming) {
+        return;
+    }
+    BOOL isAnimating = self.voice.isAnimating || self.voiceData.isPlaying;
+    self.voice.image = nil;
+    self.voice.animationImages = nil;
+    self.voice.image = self.voiceData.voiceImage;
+    self.voice.animationImages = self.voiceData.voiceAnimationImages;
+    if (isAnimating) {
+        [self.voice startAnimating];
+    }
 }
 
 - (void)applyStyleFromDirection:(TMsgDirection)direction {
