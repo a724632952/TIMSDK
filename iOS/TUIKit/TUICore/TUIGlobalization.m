@@ -74,6 +74,8 @@ static BOOL gRTLOption = NO;
         }
     } else if ([language hasPrefix:@"ar"]) {
         language = @"ar";
+    } else if ([language hasPrefix:@"tr"]) {
+        language = @"tr";
     }
     else {
         language = @"en";
