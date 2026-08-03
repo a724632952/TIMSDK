@@ -1,0 +1,804 @@
+/*
+  Localizable.strings
+  
+
+  Created by WeasonLi on 2025/10/30.
+  
+*/
+
+/***************************** 日期格式化 Start *************************/
+"YesterdayDateFormat" = "aHH:mm";
+/***************************** 日期格式化 End *************************/
+
+"TUIKitTipsMostSelectTextFormat" = "En fazla %ld seçilebilir";
+
+"Confirm" = "Onayla";
+"Cancel" = "İptal";
+"Send" = "Gönder";
+"Save" = "Kaydet";
+"You" = "Siz";
+"you" = "siz";
+"Male" = "Erkek";
+"Female" = "Kadın";
+"File" = "Dosya";
+"Download" = "İndir";
+"Unsetted" = "Ayarlanmamış";
+"Show" = "Göster";
+
+"Monday" = "Pazartesi";
+"Tuesday" = "Salı";
+"Wednesday" = "Çarşamba";
+"Thursday" = "Perşembe";
+"Friday" = "Cuma";
+"Saturday" = "Cumartesi";
+"Sunday" = "Pazar";
+"Yesterday" = "Dün";
+"am" = "öğleden önce";
+"pm" = "öğleden sonra";
+
+"Read" = "Okundu";
+"Unread" = "Okunmadı";
+
+"Copy" = "Kopyala";
+"Delete" = "Sil";
+"Revoke" = "Geri al";
+"Retry" = "Yeniden dene";
+"Re_send" = "Yeniden gönder";
+"Make_a_call" = "Arama başlat";
+"Done" = "Tamamlandı";
+"All" = "Herkes";
+"Agreed" = "Kabul edildi";
+"Disclined" = "Reddedildi";
+"Agree" = "Kabul et";
+"Have_been_sent" = "Gönderildi";
+
+"OK" = "Tamam";
+"None" = "Yok";
+"Send" = "Gönder";
+"Cancel" = "İptal";
+"Alia" = "Not";
+"Group" = "Grup";
+"Accept" = "Kabul et";
+"Decline" = "Reddet";
+"send_success" = "Gönderim başarılı";
+"add_success" = "Ekleme başarılı";
+"delete_success" = "Silme başarılı";
+"my_friend" = "Arkadaşlarım";
+"no_personal_signature" = "Henüz kişisel imza yok";
+"SignatureFormat" = "Kişisel imza: %@";
+"choose_avatar_for_you" = "Uygulama sizin için rastgele bir sistem avatarı atayacak";
+"SearchGroupPlaceholder" = "Kullanıcı ID";
+"please_fill_in_verification_information" = "Lütfen doğrulama bilgilerini doldurun";
+"please_fill_in_remarks_group_info" = "Lütfen notları ve grup bilgilerini doldurun";
+
+"no_set" = "Ayarlanmamış";
+"no_personal_signature" = "Henüz kişisel imza yok";
+"logout" = "Çıkış yap";
+"login" = "Giriş yap";
+"ReadAll" = "Tümü okundu";
+"Hide"    = "Gizle";
+"Delete"    = "Sil";
+
+"ContactsJoinGroup"  = "Gruba katıl";
+"ContactsAddFriends" = "Arkadaş ekle";
+
+"ChatsNewChatText"    = "Sohbet başlat";
+"ChatsNewGroupText"  = "Grup oluştur";
+"ChatsSelectContact" = "Kişi seç";
+
+"GroupJoin" = "Gruba katıl";
+"GroupRequestJoinGroupFormat" = "%@ gruba katılmak için başvurdu";
+"GroupDeleteFriend" = "Arkadaşı sil";
+"GroupAddFirend" = "Arkadaş ekle";
+"GroupMember" = "Grup üyeleri";
+
+"ProfileAlia" = "Not adı";
+"ProfileMessageDoNotDisturb" = "Mesaj rahatsız etmesin";
+"ProfileStickyonTop" = "Sohbeti üste sabitle";
+"ProfileBlocked" = "Kara listeye ekle";
+"ProfileSendMessages" = "Mesaj gönder";
+"ProfileDeleteFirend" = "Arkadaşı sil";
+"ProfileEditAlia" = "Notu düzenle";
+"ProfileDetails" = "Detaylı bilgiler";
+"ProfileSetBackgroundImage" = "Mevcut sohbet arka planını ayarla";
+"ProfilePhoto" = "Profil fotoğrafı";
+"ProfileName"  = "Takma ad";
+"ProfileAccount" = "Hesap";
+"ProfileSignature" = "Kişisel imza";
+"ProfileGender" = "Cinsiyet";
+"ProfileEditName" = "Takma adı düzenle";
+"ProfileEditNameDesc" = "Sadece Çince, harf, rakam ve alt çizgi";
+"ProfileEditSignture" = "Kişisel imzayı düzenle";
+"ProfileEditGender" = "Cinsiyeti düzenle";
+"ProfileEditAlia" = "Notu düzenle";
+"ProfileEdit" = "Düzenle";
+"ProfileAlia" = "Not adı";
+"ProfileBlocked" = "Kara listeye ekle";
+"ProfileMessageDoNotDisturb" = "Mesaj rahatsız etmesin";
+"ProfileStickyonTop" = "Üste sabitle";
+"ProfileSendMessages" = "Mesaj gönder";
+"ProfileDeleteFirend" = "Arkadaşı sil";
+"ProfileBirthday" = "Doğum günü";
+"SignatureFormat" = "Kişisel imza: %@";
+
+"FriendRequestFormat" = "Ben %@";
+"FriendRequestFillInfo" = "Arkadaş ekle";
+"FriendOneWay" = "Tek yönlü arkadaş";
+"FriendAddTitle" = "Arkadaş ekle";
+"FriendAddVerificationMessage" = "Doğrulama mesajı";
+"FriendAddResultSuccessWait" = "Gönderim başarılı, onay bekleniyor";
+"FriendAddResultForbid" = "Kullanıcı arkadaş eklemeyi engellemiş";
+"FriendAddResultSuccess" = "Arkadaş listesine eklendi";
+"FriendAddResultExists" = "Kullanıcı zaten arkadaşınız";
+"MeFriendRequest" = "Beni arkadaş olarak eklerken";
+"MeFriendRequestMethodAgreeAll" = "Tüm kullanıcıları kabul et";
+"MeFriendRequestMethodNeedConfirm" = "Doğrulama gerekli";
+"MeFriendRequestMethodDenyAll" = "Herkesi reddet";
+"MeMessageReadStatus" = "Mesaj okunma durumu";
+"MeMessageReadStatusOpenDesc" = "Kapatıldığında, gönderdiğiniz ve aldığınız mesajlar okunma durumu göstermez, karşı tarafın okuduğunu göremezsiniz, aynı zamanda karşı taraf da sizin okuduğunuzu göremez.";
+"MeMessageReadStatusCloseDesc" = "Açıldığında, grup sohbetlerinde gönderdiğiniz ve aldığınız mesajlar okunma durumu gösterir ve karşı tarafın okuduğunu görebilirsiniz. Sizinle birebir sohbet eden arkadaşlarınız da mesaj okunma durumunu açtıysa, birebir sohbetlerde gönderdiğiniz ve aldığınız mesajlar okunma durumu gösterir.";
+"ShowOnlineStatus" = "Çevrimiçi durumu göster";
+"ShowOnlineStatusOpenDesc" = "Kapatıldığında, sohbet listesinde ve adres defterinde arkadaşların çevrimiçi veya çevrimdışı durumunu göremezsiniz.";
+"ShowOnlineStatusCloseDesc" = "Açıldığında, sohbet listesinde ve adres defterinde arkadaşların çevrimiçi veya çevrimdışı durumunu görebilirsiniz.";
+"ShowPackageToast" = "Bu özellik flagship sürüm özelliğidir";
+"ShowCallsRecord" = "Arama kayıtlarını göster";
+
+"TUIKitClassic" = "Klasik";
+"TUIKitMinimalist" = "Minimalist";
+"TUIKitThemeNameSystemFollowTitle" = "Sistemi takip et";
+"TUIKitThemeNameSystemFollowSubTitle" = "Açıldığında sadece varsayılan temalar gösterilir (Açık/Koyu), diğer tema stilleri arasında geçiş yapılamaz";
+"TUIKitThemeNameSerious" = "Ciddi";
+"TUIKitThemeNameLight" = "Açık";
+"TUIKitThemeNameLivey" = "Canlı";
+"TUIKitThemeNameDark" = "Koyu";
+"TUIKitThemeNameSystem" = "Sistemi takip et";
+
+"TUIKitDone" = "Tamamla";
+"TUIKitWelcome" = "Tencent Cloud IM ailesine hoş geldiniz!";
+"TUIKitMicCamerAuthTips" = "Lütfen mikrofon ve kamera izinlerini açın";
+"TUIKitMicAuth" = "Lütfen mikrofon iznini açın";
+"TUIKitTipsConfirmResendMessage" = "Bu mesajı yeniden göndermek istediğinizden emin misiniz? ";
+"TUIKitTipsSystemError" = "Sistem hatası";
+"TUIKitTipsEnterRoomErrorFormat" = "Odaya girme başarısız: %d";
+"TUIKitWhoRequestForJoinGroupFormat" = "%@ gruba katılmak için başvurdu";
+"TUIKitInviteJoinGroupFormat" = "%@'ı gruba davet et";
+"TUIKitAgreedByAdministor" = "Yönetici başvuruyu onayladı";
+"TUIkitDiscliedByAdministor" = "Yönetici başvuruyu reddetti";
+"TUIKitDownloadProgressFormat" = "İndiriliyor %d%%";
+"TUIKitOpenWithOtherApp" = "Diğer uygulamayla aç";
+"TUIKitTipsContactListNil" = "Kişi listesi boş, lütfen önce arkadaş ekleyin";
+
+"TUIKitUserStatusUnknown" = "Bilinmiyor";
+"TUIKitUserStatusOnline" = "Çevrimiçi";
+"TUIKitUserStatusOffline" = "Çevrimdışı";
+"TUIKitUserStatusUnlogined" = "Giriş yapılmadı";
+
+"TUIKitInputHoldToTalk" = "Konuşmak için basılı tut";
+"TUIKitInputReleaseToSend" = "Göndermek için bırak";
+"TUIKitInputReleaseToCancel" = "İptal etmek için bırak";
+"TUIKitInputBlankMessageTitle" = "Boş mesaj gönderilemez";
+"TUIKitInputWillFinishRecordInSeconds" = "%ld saniye içinde kayıt sonlanacak";
+"TUIKitInputRecordSlideToCancel" = "İptal etmek için yukarı kaydır";
+"TUIKitInputRecordReleaseToCancel" = "İptal etmek için parmağınızı kaldırın";
+"TUIKitInputRecordTimeshort" = "Konuşma süresi çok kısa";
+"TUIKitInputRecordTimeLong" = "Konuşma süresi çok uzun";
+
+"TUIKitGroupProfileDetails" = "Detaylı bilgiler";
+"TUIKitGroupProfileMember" = "Grup üyeleri";
+"TUIKitGroupProfileMemberCount" = "%d kişi";
+"TUIKitGroupProfileMemberCountlu" = "%lu kişi";
+"TUIKitGroupProfileType" = "Grup türü";
+"TUIKitGroupProfileJoinType" = "Gruba katılma yöntemi";
+"TUIKitGroupProfileInviteType" = "Gruba davet yöntemi";
+"TUIKitGroupProfileInviteJoin" = "Davet et";
+"TUIKitGroupProfileAutoApproval" = "Otomatik onay";
+"TUIKitGroupProfileAlias" = "Grup takma adım";
+"TUIKitGroupProfileMessageDoNotDisturb" = "Mesaj rahatsız etmesin";
+"TUIKitGroupProfileStickyOnTop" = "Sohbeti üste sabitle";
+"TUIKitGroupProfileDeleteAndExit" = "Sil ve çık";
+"TUIKitGroupProfileReport" = "Şikayet et";
+"TUIKitGroupProfileDissolve" = "Grubu dağıt";
+"TUIKitGroupProfileJoinDisable" = "Gruba katılmayı engelle";
+"TUIKitGroupProfileInviteDisable" = "Daveti engelle";
+"TUIKitGroupProfileAdminApprove" = "Yönetici onayı";
+"TUIKitGroupProfileEditAlias" = "Grup takma adımı düzenle";
+"TUIKitGroupProfileEditAliasDesc" = "Sadece Çince, harf, rakam ve alt çizgi";
+"TUIKitGroupProfileEditGroupName" = "Grup adını düzenle";
+"TUIKitGroupProfileEditAnnouncement" = "Grup duyurusunu düzenle";
+"TUIKitGroupProfileEditAvatar" = "Grup avatarını düzenle";
+"TUIKitGroupProfileDeleteGroupTips" = "Çıktıktan sonra bu grup mesajlarını artık alamazsınız";
+"TUIKitGroupProfileGroupCountFormat" = "Grup üyeleri (%ld kişi)";
+"TUIKitGroupProfileManage" = "Yönet";
+"TUIKitGroupProfileManageAdd" = "Üye ekle";
+"TUIKitGroupProfileManageDelete" = "Üye sil";
+"TUIKitGroupProfileAdmainAdd" = "Yönetici olarak ayarla";
+"TUIKitGroupProfileAdmainDelete" = "Yöneticiliği kaldır";
+"TUIKitGroupTransferOwner" = "Grup sahipliğini devret";
+"TUIKitGroupTransferOwnerSuccess" = "Grup sahipliği başarıyla devredildi";
+
+"TUIKitGroupApplicant" = "Grup başvurusu";
+"TUIKitGroupDismssTipsFormat" = "%@ grubu dağıtıldı";
+"TUIKitGroupRecycledTipsFormat" = "%@ grubu geri alındı";
+"TUIKitGroupKickOffTipsFormat" = "%@ grubundan atıldınız";
+"TUIKitGroupDropoutTipsFormat" = "%@ grubundan ayrıldınız";
+
+"TUIKitGroupMessagePinRemove" = "Kaldır";
+
+"TUIKitMessageTipsNormalRecallMessage" = "Bir mesaj geri alındı";
+"TUIKitMessageTipsYouRecallMessage" = "Bir mesajı geri aldınız";
+"TUIKitMessageTipsReEditMessage" = "Yeniden düzenle";
+"TUIKitMessageTipsRecallMessageFormat" = "\"%@\" bir mesajı geri aldı";
+"TUIKitMessageTipsOthersRecallMessage" = "Karşı taraf bir mesajı geri aldı";
+"TUIKitMessageTipsJoinGroupFormat" = "\"%@\" gruba katıldı";
+"TUIKitMessageTipsInviteJoinGroupFormat" = "\"%@\", \"%@\"'ı gruba davet etti";
+"TUIKitMessageTipsLeaveGroupFormat" = "\"%@\" gruptan ayrıldı";
+"TUIKitMessageTipsKickoffGroupFormat" = "\"%@\", \"%@\"'ı gruptan attı";
+"TUIKitMessageTipsSettAdminFormat" = "\"%@\" yönetici olarak atandı";
+"TUIKitMessageTipsCancelAdminFormat" = "\"%@\"'ın yöneticiliği kaldırıldı";
+"TUIkitMessageTipsEditGroupNameFormat" = "%@ grup adını \"%@\" olarak değiştirdi";
+"TUIKitMessageTipsEditGroupIntroFormat" = "%@ grup tanıtımını \"%@\" olarak değiştirdi";
+"TUIKitMessageTipsEditGroupAnnounceFormat" = "%@ grup duyurusunu \"%@\" olarak değiştirdi";
+"TUIKitMessageTipsDeleteGroupAnnounceFormat" = "%@ grup duyurusunu sildi";
+"TUIKitMessageTipsEditGroupAvatarFormat" = "%@ grup avatarını değiştirdi";
+"TUIKitMessageTipsEditGroupOwnerFormat" = "%@ grup sahipliğini \"%@\"'a devretti";
+"TUIKitMessageTipsCreateGroupFormat" = "\"%@\" grup oluşturdu";
+"TUIKitMessageTipsUnsupportCustomMessage" = "[Özel mesaj]";
+"TUIKitMessageTipsMute" = "Susturuldu";
+"TUIKitMessageTipsUnmute" = "Susturma kaldırıldı";
+"TUIKitMessageTipsRecallRiskContent" = "Uygunsuz mesaj geri alındı";
+"TUIKitMessageDisplayRiskContent" = "[Uygunsuz mesaj]";
+"TUIKitMessageTipsGroupPinMessage" = "\"%@\" bir mesajı sabitledi";
+"TUIKitMessageTipsGroupUnPinMessage" = "\"%@\" sabitlenmiş bir mesajı kaldırdı";
+
+"TUIKitSignalingFinishGroupChat" = "Grup sohbetini bitir";
+"TUIKitSignalingFinishConversationAndTimeFormat" = "Arama süresi";
+"TUIKitSignalingNewCall" = "Arama başlat";
+"TUIKitSignalingNewGroupCallFormat" = "\"%@\" grup araması başlattı";
+"TUIkitSignalingCancelCall" = "Aramayı iptal et";
+"TUIkitSignalingCancelGroupCallFormat" = "\"%@\" grup aramasını iptal etti";
+"TUIkitSignalingHangonCall" = "Aranıyor";
+"TUIKitSignalingHangonCallFormat" = "\"%@\" aranıyor";
+"TUIKitSignalingBusyFormat" = "\"%@\" meşgul";
+"TUIKitSignalingDeclineFormat" = "\"%@\" aramayı reddetti";
+"TUIKitSignalingCallBusy" = "Karşı taraf meşgul";
+"TUIkitSignalingDecline" = "Aramayı reddet";
+"TUIKitSignalingNoResponse" = "Yanıt yok";
+"TUIkitSignalingUnrecognlize" = "Tanınmayan arama komutu";
+
+"TUIkitMessageTypeImage" = "[Resim]";
+"TUIKitMessageTypeVoice" = "[Ses]";
+"TUIkitMessageTypeVideo" = "[Video]";
+"TUIkitMessageTypeFile" = "[Dosya]";
+"TUIKitMessageTypeAnimateEmoji" = "[Animasyonlu emoji]";
+"TUIKitMessageTypeDraftFormat" = "[Taslak] ";
+
+"TUIkitMessageTypeRiskImage" = "[Uygunsuz resim]";
+"TUIkitMessageTypeRiskVoice" = "[Uygunsuz ses]";
+"TUIkitMessageTypeRiskVideo" = "[Uygunsuz video]";
+
+"TUIKitMessageTypeLastMsgCountFormat" = "mesaj";
+"TUIKitMessageTypeSecurityStrike" = "Hassas içerik içeriyor, gönderilemedi";
+"TUIKitMessageTypeSecurityStrikeVoice" = "Hassas içerik içeriyor, dinlenemiyor";
+"TUIKitMessageTypeSecurityStrikeImage" = "Hassas içerik içeriyor, görüntülenemiyor";
+"TUIKitMessageTypeSecurityStrikeTranslate" = "Hassas içerik içeriyor, çevrilemedi";
+"TUIKitMessageTypeOtherUseMic" = "Diğer özellik mikrofonu kullanıyor, kayıt yapılamıyor";
+
+"TUIKitMessageReadPartRead" = "kişi okudu";
+"TUIKitMessageReadPartUnread" = "kişi okumadı";
+"TUIKitMessageReadPartDisable" = "kişi durum yok";
+"TUIKitMessageReadAllRead" = "Tümü okundu";
+"TUIKitMessageReadC2CRead" = "Okundu";
+"TUIKitMessageReadC2CUnRead" = "Okunmadı";
+"TUIKitMessageReadC2CUnReadDetail" = "Henüz okunmadı";
+"TUIKitMessageReadDetail" = "Mesaj detayları";
+"TUIKitMessageReadNoMoreData" = "Daha fazla veri yok";
+"TUIKitMessageReadGetReadMembersFail" = "Okunmuş üyeler alınamadı";
+"TUIKitMessageReadGetUnreadMembersFail" = "Okunmamış üyeler alınamadı";
+
+"TUIKitMoreCamera" = "Fotoğraf çek";
+"TUIKitMorePhoto" = "Resim";
+"TUIKitMoreVideo" = "Video kaydet";
+"TUIKitMoreVideoCaptureDurationTip" = "Kayıt süresi çok kısa";
+"TUIKitMoreFile" = "Dosya";
+"TUIKitMoreVideoCall" = "Video görüşmesi";
+"TUIKitMoreVoiceCall" = "Sesli arama";
+"TUIKitMoreLink" = "Özel";
+"TUIKitMoreLinkDetails" = "Detayları görüntüle >>";
+"TUIKitMorePoll" = "Anket";
+"TUIKitMoreGroupNote" = "Grup zinciri";
+"TUIKitMoreEvaluation" = "Hizmet değerlendirmesi";
+"TUIKitMoreCard" = "Kart mesajı";
+
+"TUIKitFileSizeCheckLimited" = "Dosya boyutu sınırı aşıldı";
+"TUIKitImageSizeCheckLimited" = "Resim boyutu sınırı aşıldı";
+
+"TUIKitCallInviteYouVideoCall" = "Sizi video görüşmesine davet ediyor";
+"TUIKitCallTurningOnMute" = "Sessize al";
+"TUIKitCallTurningOffMute" = "Sessizi kapat";
+"TUIKitCallUsingSpeaker" = "Hoparlör kullan";
+"TUIKitCallUsingHeadphone" = "Kulaklık kullan";
+"TUIKitCallCancelCallingFormat" = "%@ aramayı iptal etti";
+
+"TUIKitAtSelectMemberTitle" = "Grup üyesi seç";
+
+"TUIKitConversationTipsAtMe" = "[Biri beni etiketledi]";
+"TUIKitConversationTipsAtAll" = "[Herkesi etiketle]";
+"TUIKitConversationTipsAtMeAndAll" = "[Biri beni etiketledi][Herkesi etiketle]";
+"TUIKitConversationTipsDelete" = "Bu sohbet ve tüm mesaj geçmişi silinecek";
+
+"TUIKitPublicGroup" = "Açık grup";
+"TUIKitWorkGroup" = "Tartışma grubu";
+"TUIKitChatRoom" = "Sohbet odası";
+"TUIKitCommunity" = "Topluluk";
+
+"TUIKitContactsNewFriends" = "Yeni kişiler";
+"TUIKitContactsGroupChats" = "Grup sohbetleri";
+"TUIKitContactsBlackList" = "Kara liste";
+"TUIKitAddFriendSourceFormat" = "Kaynak: %@";
+"TUIKitFriendApplicationApproved" = "Arkadaşlık isteği kabul edildi";
+"TUIKitFirendRequestRejected" = "Arkadaşlık isteği reddedildi";
+
+"TUIKitOfflinePushCallTips" = "Bir arama isteğiniz var";
+
+"TUIKitChatTap2Remove" = "Silmek için tıklayın";
+"TUIKitChatPendencyTitle" = "İşlemek için tıklayın";
+"TUIKitChatPendencyRequestToJoinGroupFormat" = "%@ grup katılım isteği";
+"TUIKitChatTipsAtMe" = "Biri beni etiketledi";
+"TUIKitChatBackToLatestLocation" = "En son konuma dön";
+"TUIKitChatNewMessages" = "%@ yeni mesaj";
+
+"TUIKitAllowTypeAcceptOne" = "Tüm kullanıcıları kabul et";
+"TUIKitAllowTypeNeedConfirm" = "Doğrulama gerekli";
+"TUIKitAllowTypeDeclineAll" = "Herkesi reddet";
+
+/***************************** Mesaj iletme & Mesaj arama *************************/
+"Multiple" = "Çoklu seçim";
+"Forward" = "İlet";
+"Delete" = "Sil";
+"Copy" = "Kopyala";
+"Revoke" = "Geri al";
+"Resend" = "Yeniden gönder";
+"Search" = "Ara";
+"Recall" = "Geri al";
+"MultiSelect" = "Çoklu seçim";
+"Quote" = "Alıntı";
+
+"TUIKitCallMicCamAuthTips" = "Lütfen mikrofon ve kamera izinlerini açın";
+"TUIKitCallMicAuthTips" = "Lütfen mikrofon iznini açın";
+"TUIKitMessageTipsSureToResend" = "Mesajı yeniden göndermek istediğinizden emin misiniz?";
+
+// Mesaj iletme
+"TUIKitRelayNoMessageTips" = "Lütfen mesaj seçin";
+"TUIKitRelayRecentMessages" = "Son sohbetler";
+"TUIKitRelayChatHistory" = "Sohbet geçmişi";
+"TUIKitRelaySepcialForbid" = "Seçilen mesajlar arasında ses mesajları ve diğer mesajlar iletilemez.";
+"TUIKitRelayConfirmForward" = "İletmek istediğinizden emin misiniz?";
+"TUIKitRelayOneByOneForward" = "Tek tek ilet";
+"TUIKitRelayCombineForwad" = "Birleştirerek ilet";
+"TUIKitRelayGroupChatHistory" = "Grup sohbet geçmişi";
+"TUIKitRelayChatHistoryForSomebodyFormat" = "%@ ve %@ sohbet geçmişi";
+"TUIKitRelayErrorForwardFormat" = "İletme başarısız, kod:%d, açıklama:%@";
+"TUIKitRelayTargetCreateNewChat" = "Yeni sohbet oluştur";
+"TUIKitRelayTargetCreateNewGroup" = "Yeni grup oluştur";
+"TUIKitRelayTargetSelectFromContacts" = "Kişilerden seç";
+"TUIKitRelayTargetCrateGroupError" = "Grup oluşturma başarısız";
+"TUIKitRelayTargetNoneTips" = "Lütfen kişi veya sohbet seçin";
+"TUIKitRelayLayerLimitTips" = "Üzgünüz, mevcut iç içe geçme seviyesi sınırı aştı";
+"TUIKitRelayCompatibleText" = "Birleştirilmiş mesaj iletimi desteklenmiyor, lütfen en son sürüme yükseltin.";
+"TUIKitRelayUnsupportForward" = "Gönderilememiş mesajlar iletilemez";
+"TUIKitRelayOneByOnyOverLimit" = "Çok fazla mesaj iletiliyor, tek tek iletme şu anda desteklenmiyor";
+"TUIKitRelayPluginNotAllowed" = "Anket/zincir mesajları iletilemez";
+
+// Mesaj arama
+"TUIKitSearchItemHeaderTitleContact" = "Kişiler";
+"TUIKitSearchItemFooterTitleContact" = "Daha fazla kişi görüntüle";
+"TUIKitSearchItemHeaderTitleGroup" = "Grup sohbetleri";
+"TUIKitSearchItemFooterTitleGroup" = "Daha fazla grup sohbeti görüntüle";
+"TUIkitSearchItemHeaderTitleChatHistory" = "Sohbet geçmişi";
+"TUIKitSearchItemFooterTitleChatHistory" = "Daha fazla sohbet geçmişi görüntüle";
+"TUIKitSearchResultMatchFormat" = "Şunu içerir: %@";
+"TUIKitSearchResultMatchGroupIDFormat" = "Grup ID içerir: %@";
+"TUIKitSearchResultMatchGroupMember" = "Grup üyesi içerir:";
+"TUIKitSearchResultDisplayChatHistoryCountFormat" = "%zd sohbet kaydı";
+/***************************** Mesaj iletme & Mesaj arama *************************/
+
+/***************************** Mesaj yanıtı & Tema değiştirme *************************/
+"Reply" = "Yanıtla";
+"TUIKitReplyMessageNotFoundOriginMessage" = "Orijinal mesaj bulunamadı";
+"TUIKitClearAllChatHistory" = "Sohbet geçmişini temizle";
+"TUIKitClearAllChatHistoryTips" = "Sohbet geçmişini temizlemek istediğinizden emin misiniz?";
+"Discline" = "Reddet";
+"Copied" = "Kopyalandı";
+"ConfirmDeleteMessage" = "Seçilen mesajları silmek istediğinizden emin misiniz";
+"TUIKitAddFriend" = "Arkadaş ekle";
+"TUIKitAddGroup" = "Grup ekle";
+"TUIKitSearchUserID" = "Kullanıcı ID ara";
+"TUIKitSearchGroupID" = "Grup ID ara";
+"TUIKitNoSelfSignature" = "Henüz kişisel imza yok";
+"TUIKitSelfSignatureFormat" = "Kişisel imza: %@";
+"TUIKitGroupProfileManage" = "Grup yönetimi";
+"TUIKitGroupManageShutupAllTips" = "Tüm üyeler susturulduğunda, sadece grup sahibi ve yöneticiler konuşabilir.";
+"TUIKitGroupManageAdminSetting" = "Yönetici ayarla";
+"TUIKitGroupManageShutAll" = "Tüm üyeleri sustur";
+"TUIKitGroupAddShutupMember" = "Susturulacak grup üyelerini ekle";
+"TUIKitGroupShutupOption" = "Sustur";
+"TUIKitGroupDisShutupOption" = "Susturmayı kaldır";
+"TUIKitGroupOwner" = "Grup sahibi";
+"TUIKitGroupManagerFormat" = "Yöneticiler (%zd/%zd)";
+"TUIKitSetShutupAllFormat" = "%@ tüm üyeleri susturdu";
+"TUIKitCancelShutupAllFormat" = "%@ tüm üye susturmayı kaldırdı";
+"TUIKitGroupNotice" = "Grup duyurusu";
+"TUIKitGroupNoticeNull" = "Henüz grup duyurusu ayarlanmamış";
+"Edit" = "Düzenle";
+"Done" = "Tamamlandı";
+"TUIKitAddContactMyUserIDFormat" = "Kullanıcı ID'm: %@";
+"TUIKitAddUserNoDataTips" = "Bu kullanıcı mevcut değil";
+"TUIKitAddGroupNoDataTips" = "Bu grup sohbeti mevcut değil";
+/***************************** Mesaj yanıtı & Tema değiştirme *************************/
+
+/***************************** Video, resim yükleme & kaydetme *************************/
+"TUIKitVideoTranscoding" = "Video dönüştürülüyor...";
+"TUIKitVideoDownloading" = "Video indiriliyor...";
+"TUIKitVideoSavedSuccess" = "Video başarıyla kaydedildi";
+"TUIKitVideoSavedFailed" = "Video kaydedilemedi";
+"TUIKitPictureSavedSuccess" = "Resim başarıyla kaydedildi";
+"TUIKitPictureSavedFailed" = "Resim kaydedilemedi";
+"TUIKitPictureCheckRisk" = "Resim hassas içerik içeriyor, şu anda görüntülenemiyor";
+"TUIKitVideoCheckRisk" = "Video hassas içerik içeriyor, şu anda görüntülenemiyor";
+"TUIKitVideoCheckRiskCancel" = "Anladım";
+/***************************** Video, resim yükleme & kaydetme *************************/
+
+"TUIKitGroupSetAdminsForbidden" = "Mevcut grup türü yönetici ayarlamayı desteklemiyor";
+"TUIKitGroupAddAdmins" = "Yönetici ekle";
+"TUIKitGroupAddMemberOfBlockedForbidden" = "Mevcut grup türü belirli grup üyelerini susturmayı desteklemiyor";
+
+"TUIKitNotDownload"= "İndirilmedi";
+
+"TUIKitInputNoCameraTitle" = "Kamera izni açılmamış";
+"TUIKitInputNoCameraTips"  = "Fotoğraf video çekme, video görüşmesi gibi özellikler kullanılamıyor, kamera iznini açmak için \"Aç\"'a tıklayın";
+"TUIKitInputNoCameraOperateLater" = "Sonra";
+"TUIKitInputNoCameraOperateEnable" = "Aç";
+
+"TUIKitInputNoMicTitle" = "Mikrofon izni açılmamış";
+"TUIKitInputNoMicTips"  = "Ses mesajı gönderme, video çekme, sesli/görüntülü arama gibi özellikler kullanılamıyor, mikrofon iznini açmak için \"Aç\"'a tıklayın";
+"TUIKitInputNoMicOperateLater" = "Sonra";
+"TUIKitInputNoMicOperateEnable" = "Aç";
+
+"TUIKitInputNoPhotoTitle" = "Resim izni açılmamış";
+"TUIKitInputNoPhotoTips"  = "Sohbet özelliklerinde resim görüntüleme, seçme gibi işlevler kullanılamıyor, resim iznini açmak için \"Aç\"'a tıklayın";
+"TUIKitInputNoPhotoOperateLater" = "Sonra";
+"TUIKitInputNoPhotoerateEnable" = "Aç";
+
+"TUIKitInputRecordTipsTitle" = "Göndermek için parmağınızı kaldırın, iptal etmek için sola kaydırın";
+"TUIKitInputRecordCancelTipsTitle" = "İptal etmek için parmağınızı kaldırın";
+"TUIKitInputRecordRejectedInCall" = "Sesli/görüntülü arama yapılıyor, lütfen daha sonra tekrar deneyin";
+"TUIKitInputRecordRejectedIsRecording" = "Mevcut kayıt henüz bitmedi";
+
+"StickyonTop" = "Üste sabitle";
+"CancelStickonTop" = "Üstten sabitlemeyi kaldır";
+"ClearHistoryChatMessage" = "Mesaj geçmişini temizle";
+"MarkAsRead" = "Okundu olarak işaretle";
+"MarkAsUnRead" = "Okunmamış olarak işaretle";
+"MarkHide" = "Gösterme";
+"MinimizeGroup" = "Sohbeti daralt";
+"More" = "Daha fazla";
+"Info" = "Detaylar";
+
+"TUIKitConversationMarkHide" = "Sohbeti gizle";
+"TUIKitConversationMarkHideDescriptionOn" = "Açıldığında, bu sohbet sohbet listesinde görünmeyecek, sohbet geçmişi korunacak.";
+"TUIKitConversationMarkHideDescriptionOff" = "Kapatıldığında, bu sohbet sohbet listesinde görünecek, sohbet geçmişi korunacak.";
+
+"TUIKitConversationMarkFoldGroups" = "Daraltılmış gruplar";
+"TUIKitConversationMarkFold" = "Bu grubu daralt";
+
+"TUIKitRepliesDetailTitle" = "Yanıt detayları";
+"TUIKitRepliesNum" = "yanıt";
+"TUIKitReference" = "Referans";
+"TUIKitNotSupportThisMessage" = "[Bu mesajın gösterimi henüz desteklenmiyor]";
+
+"TUIKitRepliesOriginMessageRevoke" = "Yanıt içeriği geri alındı";
+"TUIKitReferenceOriginMessageRevoke" = "Referans içeriği geri alındı";
+
+"TUIKitAudioPlaybackStyleLoudspeaker" = "Hoparlör";
+"TUIKitAudioPlaybackStyleHandset" = "Kulaklık";
+"TUIKitAudioPlaybackStyleChange2Loudspeaker" = "Hoparlöre geç";
+"TUIKitAudioPlaybackStyleChange2Handset" = "Kulaklığa geç";
+
+"TUIKitGroupMessagePin" = "Üste sabitle";
+"TUIKitGroupMessageUnPin" = "Üstten sabitlemeyi kaldır";
+"TUIKitGroupMessagePinOverLimit" = "Sabitlenen mesaj sayısı sınırı aşıldı";
+"TUIKitGroupMessagePinRepeatedly" = "Bu mesaj zaten sabitlendi";
+"TUIKitGroupMessageUnPinRepeatedly" = "Bu mesaj zaten sabitlenmemiş";
+
+"TUIKitTranslate" = "Çevir";
+"TUIKitTranslateDefaultTips" = "Tencent Cloud IM tarafından çeviri desteği sağlanmaktadır";
+"TUIKitTranslateFailed" = "Çeviri başarısız";
+"Hide" = "Gizle";
+"TranslateMessage" = "Mesajı şu dile çevir:";
+"TranslateLanguageNotSupport" = "Mevcut çeviri dili desteklenmiyor, lütfen başka bir dile geçin";
+
+"TUIKitConvertToText" = "Metne dönüştür";
+"TUIKitConvertToTextFailed" = "Dönüştürme başarısız";
+
+"TUIKitSignalingSwitchToAudio" = "Videoyu sese dönüştür";
+"TUIKitSignalingUnsupportedCalling" = "Bilinmeyen davet";
+"TUIKitSignalingComfirmSwitchToAudio" = "Sese dönüştürmeyi onayla";
+
+"TUIKitErrorEnableUserStatusOnConsole" = "Kullanıcı durumu özelliğini açmadınız, lütfen önce konsolda açın";
+
+"TUIKitChooseAvatar" = "Avatar seç";
+"TUIKitChooseCover" = "Kapak seç";
+"TUIKitChooseBackground" = "Arka planı değiştir";
+"TUIKitDefaultBackground" = "Varsayılan arka plan";
+"TUIKitIdentity" = "ID";
+
+"TUIKitChooseBackgroundSuccess" = "Başarıyla ayarlandı!";
+"TUIKitChooseBackgroundFailed" = "Ayar başarısız!";
+
+"TUIKitContactNoNewApplicationRequest" = "Henüz yeni kişi isteği yok";
+"TUIKitContactNoGroupChats" = "Henüz grup sohbeti yok";
+"TUIKitContactNoBlockList" = "Henüz kara listede arkadaş yok";
+"TUIKitSearchNoResultLists" = "İlgili sohbet, kişi veya mesaj kaydı yok";
+"TUIKitTyping" = "Karşı taraf yazıyor";
+
+"TUIKitMessageTipsEditGroupAddOptFormat" = "%@ grup katılma yöntemini \"%@\" olarak değiştirdi";
+"TUIKitMessageTipsEditGroupInviteOptFormat" = "%@ gruba davet yöntemini \"%@\" olarak değiştirdi";
+
+"TUIKitCreatGroupNamed" = "Grup adı";
+"TUIKitCreatGroupID" = "Grup ID (isteğe bağlı)";
+"TUIKitCreatGroupNamed_Placeholder" = "Grup adını girin";
+"TUIKitCreatGroupID_Placeholder" = "Grup ID girin";
+"TUIKitCreatGroupAvatar" = "Grup avatarı";
+"TUIKitCreatGroupType" = "Grup türü";
+"TUIKitCreatGroupType_Work" = "Arkadaş çalışma grubu (Work)";
+"TUIKitCreatGroupType_Public" = "Yabancı sosyal grubu (Public)";
+"TUIKitCreatGroupType_Meeting" = "Geçici toplantı grubu (Meeting)";
+"TUIKitCreatGroupType_Community" = "Topluluk (Community)";
+"TUIKitCreatGroupType_Work_Desc" = "Arkadaş çalışma grubu (Work): Normal WeChat grubu gibi, oluşturulduktan sonra sadece gruptaki arkadaşlar davet edebilir ve davet edilenin onayı veya grup sahibi onayı gerekmez.";
+"TUIKitCreatGroupType_Public_Desc" = "Yabancı sosyal grubu (Public): QQ grubu gibi, oluşturulduktan sonra grup sahibi yönetici atayabilir, kullanıcılar grup ID'sini aratarak katılma isteği gönderdikten sonra grup sahibi veya yönetici onayı gerekir.";
+"TUIKitCreatGroupType_Meeting_Desc" = "Geçici toplantı grubu (Meeting): Oluşturulduktan sonra serbestçe girilebilir ve katılmadan önceki mesajlar görüntülenebilir; sesli/görüntülü toplantı senaryoları, çevrimiçi eğitim senaryoları gibi gerçek zamanlı sesli/görüntülü ürünlerle entegre senaryolar için uygundur.";
+"TUIKitCreatGroupType_Community_Desc" = "Topluluk (Community): Oluşturulduktan sonra serbestçe girilebilir, en fazla 100.000 kişiyi destekler, geçmiş mesaj depolamayı destekler, kullanıcılar grup ID'sini aratarak katılma isteği gönderdikten sonra yönetici onayı gerekmez.";
+"TUIKitCreatGroupType_See_Doc" ="Ürün dokümanına bakın";
+"TUIKitCreatGroupType_Desc_Highlight" = "Ürün dokümanı";
+"TUIKitCreatGroupType_See_Doc_Simple" = "Ürün dokümanını görüntüle";
+"TUIKitSearchItemCancel" = "İptal";
+
+//----mini---
+"Pin" = "Sabitle";
+"UnPin" = "Sabitlemeyi kaldır";
+"TUIKitSelected" = "seçili";
+"TUIKitThreadQuote" = "yanıt";
+"MessageInfo" = "Mesaj detayları";
+"C2CReadBy" = "Okundu";
+"C2CDeliveredTo" = "Okunmadı";
+"GroupReadBy" = "Okunmuş listesi";
+"GroupDeliveredTo" = "Okunmamış listesi";
+"TUIKitMessage" = "Mesaj gönder";
+"TUIKitAudio" = "Sesli arama";
+"TUIKitVideo" = "Video görüşmesi";
+"TUIKitAddMembers" = "+ Üye ekle";
+"TUIKitMembersRoleMember" = "Üye";
+"TUIKitMembersRoleAdmin" = "Yönetici";
+"TUIKitMembersRoleSuper" = "Grup sahibi";
+"TUIKitCreateCancel" = "İptal";
+"TUIKitCreateNext" = "Sonraki";
+"TUIKitCreateFinish" = "Oluştur";
+"TUIKitCreateMemebers" = "Seçilen üyeler";
+"TUIKitDateToday" = "Bugün";
+//----mini---
+
+"TUIPollCreateNew" = "Anket oluştur";
+"TUIPollCreateSucceed" = "Oluşturma başarılı";
+"TUIPollCreateFail" = "Oluşturma başarısız";
+"TUIPollEnterTitle" = "Lütfen anket konusunu girin";
+"TUIPollEnterOption" = "Lütfen seçeneği girin";
+"TUIPollAddOption" = "Seçenek ekle";
+"TUIPollEnableMultiSelect" = "Çoklu seçime izin ver";
+"TUIPollSingleSelect" = "Tekli seçim";
+"TUIPollMultiSelect" = "Çoklu seçim";
+"TUIPollAnonymousVote" = "Anonim oylama";
+"TUIPollPublic" = "Sonuçları açıkla";
+"TUIPollNonPublic" = "Sonuçları açıklama";
+"TUIPollNonAnonymous" = "Anonim değil";
+"TUIPollAnonymous" = "Anonim";
+"TUIPollEnableNotification" = "Yeni gönderimde grupta bildirim gönder";
+"TUIPolllPublish" = "Yayınla";
+"TUIPollOneCount" = "oy";
+"TUIPollMoreCount" = "oy";
+"TUIPollInvitedParticipants" = "Katılması gereken: %d";
+"TUIPollRespondedParticipants" = "Katılan: %d";
+"TUIPollResend" = "Yeniden gönder";
+"TUIPollResendFail" = "Yeniden gönderim başarısız, hata kodu: %d";
+"TUIPollEnd" = "Anketi bitir";
+"TUIPollEndFail" = "Anket bitirme başarısız, hata kodu: %d";
+"TUIPollVoteNow" = "Hemen oyla";
+"TUIPollConfirmVote" = "Onayla";
+"TUIPollCancelVote" = "İptal";
+"TUIPollPercent" = "%d oy, %%%.0f";
+"TUIPollEnded" = "Anket sona erdi";
+"TUIPollVoteSucceed" = "Oylama başarılı";
+"TUIPollVoteFail" = "Oylama başarısız";
+"TUIPollPublicResult" = "Sonuçları açıkla";
+"TUIPollViewAllOptions" = "Tüm seçenekleri görüntüle";
+"TUIPollDisplayString" = "[Anket]";
+"TUIPollTextFieldExceedLimit" = "Maksimum karakter sınırı 50 aşıldı";
+"TUIPollVoted" = "Oy verildi";
+"TUIPoll" = "Anket";
+
+"TUIGroupNote" = "Zincir";
+"TUIGroupNoteTitle" = "Grup zinciri";
+"TUIGroupNoteSettings" = "Ayarlar";
+"TUIGroupNoteDeadline" = "Bitiş zamanı %@";
+"TUIGroupNoteTitleHint" = "Zincir konusu ekle";
+"TUIGroupNoteDescriptionHint" = "Zincir açıklaması ekle";
+"TUIGroupNoteFormatExample" = "Örnek";
+"TUIGroupNoteFormatHint" = "Zincir formatı doldurulabilir";
+"TUIGroupNoteFillIn" = "Lütfen doldurun";
+"TUIGroupNoteMultipleSettings" = "Kişi başına çoklu gönderime izin ver";
+"TUIGroupNoteDeadlineSettings" = "Bitiş zamanını ayarla";
+"TUIGroupNoteDeadlineNotSet" = "Ayarlanmamış";
+"TUIGroupNoteNotifySettings" = "Yeni gönderimde grupta bildirim gönder";
+"TUIGroupNoteSend" = "Gönder";
+"TUIGroupNoteNow" = "Hemen zincire katıl";
+"TUIGroupNoteMessageTitle" = "Grup zinciri";
+"TUIGroupNoteMessageTitleInfo" = "%@ tarafından başlatıldı, %d kişi katıldı";
+"TUIGroupNoteTipsMessagePrefix" = "%@ grup zincirine katıldı";
+"TUIGroupNoteHasStopped" = "Zincir durduruldu";
+"TUIGroupNoteDeadlineMustBeLater" = "Bitiş zamanı mevcut zamandan önce olamaz";
+"TUIGroupNoteDisplayString" = "[Grup zinciri]";
+"TUIGroupNoteSendSucceed" = "Gönderim başarılı";
+"TUIGroupNoteSendFail" = "Gönderim başarısız";
+"TUIGroupNoteSubmitExceedLimit" = "Zincir sayısı sınırı aşıldı";
+"TUIGroupNoteTextFieldExceedLimit" = "Maksimum karakter sınırı 50 aşıldı";
+"TUIGroupNoteSubmitOnce" = "Sadece bir kez gönderime izin ver";
+"TUIGroupNoteSubmitNotAllowed" = "Gönderime izin verilmiyor";
+"TUIGroupNoteExceedDeadline" = "Bitiş zamanı aşıldı, zincir durduruldu";
+"TUIGroupNoteNotChanged" = "Zincir bilgisi değişmedi";
+"TUIGroupNoteExpand" = "...genişlet...";
+"TUIGroupNoteNotDatePickerConfirm" = "Onayla";
+"TUIGroupNoteNotDatePickerCancel" = "İptal";
+"TUIGroupNoteNotDatePickerDone" = "Tamamlandı";
+"TUIGroupNoteNotDatePickerYear" = " yıl";
+"TUIGroupNoteNotDatePickerMonth" = " ay";
+"TUIGroupNoteNotDatePickerDay" = " gün";
+"TUIGroupNoteNotDatePickerHour" = " saat";
+"TUIGroupNoteNotDatePickerMinute" = " dakika";
+"TUIGroupNoteNotDatePickerSecond" = " saniye";
+"TUIGroupNoteNotDatePickerAM" = "öğleden önce";
+"TUIGroupNoteNotDatePickerPM" = "öğleden sonra";
+"TUIGroupNoteNotDatePickerNow" = " şimdiye kadar";
+"TUIGroupNoteNotDatePickerToday" = " bugün";
+"TUIGroupNoteNotDatePickerMon" = " Pazartesi";
+"TUIGroupNoteNotDatePickerTue" = " Salı";
+"TUIGroupNoteNotDatePickerWed" = " Çarşamba";
+"TUIGroupNoteNotDatePickerTHR" = " Perşembe";
+"TUIGroupNoteNotDatePickerFRI" = " Cuma";
+"TUIGroupNoteNotDatePickerSAT" = " Cumartesi";
+"TUIGroupNoteNotDatePickerSUN" = " Pazar";
+
+"TUICustomerServiceAccounts" = "Müşteri hizmeti";
+"TUICustomerServiceBranchMessage" = "[Dallanma mesajı]";
+"TUICustomerServiceCardMessage" = "[Kart mesajı]";
+"TUICustomerServiceCollectInfomation" = "[Bilgi toplama]";
+"TUICustomerServiceSatisfactionEvaluation" = "[Memnuniyet değerlendirmesi]";
+"TUICustomerServiceTimeout" = "[Müşteri hizmeti oturumu zaman aşımına uğradı, otomatik olarak sonlandırıldı]";
+"TUICustomerServiceEnd" = "[Müşteri hizmeti oturumu sonlandırıldı]";
+"TUICustomerServiceFillProductInfo" = "Lütfen ürün bilgilerini doldurun";
+"TUICustomerServiceSubmitProductInfo" = "Ürün bilgilerini gönder";
+"TUICustomerServiceClose" = "Kapat";
+"TUICustomerServiceName" = "Ad";
+"TUICustomerServiceFillProductName" = "Lütfen ürün adını doldurun";
+"TUICustomerServiceDesc" = "Açıklama";
+"TUICustomerServiceFillProductDesc" = "Lütfen ilgili açıklamayı doldurun";
+"TUICustomerServicePic" = "Resim";
+"TUICustomerServiceFillPicLink" = "Lütfen resim bağlantısını doldurun";
+"TUICustomerServiceJumpLink" = "Git";
+"TUICustomerServiceFillJumpLink" = "Lütfen kart yönlendirme bağlantısını doldurun";
+"TUICustomerServiceSubmitEvaluation" = "Değerlendirmeyi gönder";
+"TUICustomerService" = "Müşteri hizmeti eklentisi";
+"TUICustomerServiceSendProduct" = "Ürün gönder";
+"TUICustomerServiceCommonPhrase" = "Sık kullanılanlar";
+"TUICustomerServiceCommonPhraseStock" = "Stokta var mı?";
+"TUICustomerServiceCommonPhraseCheaper" = "Daha ucuza olur mu?";
+"TUICustomerServiceCommonPhraseGift" = "Hediye var mı?";
+"TUICustomerServiceCommonPhraseShipping" = "Ne zaman gönderiliyor?";
+"TUICustomerServiceCommonPhraseDelivery" = "Hangi kargo firması?";
+"TUICustomerServiceCommonPhraseArrive" = "Ne zaman varır?";
+
+"TUIChatBotAccounts" = "Bot";
+"TUIChatBotChangeQuestion" = "Değiştir";
+
+"TUIConversationGroupAll" = "Tümü";
+"TUIConversationGroupUnread" = "Okunmamış";
+"TUIConversationGroupAtMe" = "@ Ben";
+"TUIConversationGroupGroup" = "Grup sohbeti";
+"TUIConversationGroupC2C" = "Birebir sohbet";
+"TUIConversationGroupInputGroupName" = "Lütfen grup adını girin";
+"TUIConversationGroupCreateGroup" = "Sohbet grubu oluştur";
+"TUIConversationGroupNewGroup" = "Yeni grup";
+"TUIConversationGroupAddGroup" = "Grup ekle";
+"TUIConversationGroupMoveGroup" = "Grubu taşı";
+"TUIConversationGroupRemoveGroup" = "Grubu kaldır";
+"TUIConversationGroupShowGroup" = "Sohbet gruplarını göster";
+"TUIConversationGroupHideGroup" = "Sohbet gruplarını gizle";
+"TUIConversationGroupEditGroup" = "Sohbet grubu ayarları";
+"TUIConversationGroupEdit" = "Düzenle";
+"TUIConversationGroupSave" = "Kaydet";
+"TUIConversationGroupSaveSucc" = "Grup başarıyla kaydedildi";
+"TUIConversationGroupCreate" = "Oluştur";
+"TUIConversationGroupNameIsNull" = "Grup adı boş olamaz!";
+"TUIConversationGroupNameIsInvalid" = "Grup adı önceden tanımlanmış varsayılan grup adı olamaz";
+"TUIConversationGroupConversationIsNull" = "Sohbet boş olamaz!";
+"TUIConversationGroupCreateSucc" = "Grup başarıyla oluşturuldu";
+"TUIConversationGroupModifySucc" = "Grup başarıyla değiştirildi";
+"TUIConversationGroupName" = "Grup adı";
+"TUIConversationGroupIncludeConversation" = "Sohbet içerir";
+"TUIConversationGroupAddConversation" = "Sohbet ekle";
+"TUIConversationGroup" = "Sohbet grubu";
+"TUIConversationGroupManager" = "Yönet";
+"TUIConversationGroupSelectGroup" = "Sohbet grubu seç";
+"TUIConversationGroupUnlogined" = "Giriş yapılmadı, kayıt başarısız!";
+
+"TUIConversationMark" = "İşaretle";
+"TUIConversationMarkCancel" = "İşareti kaldır";
+
+"TUIConversationNone" = "Henüz %@ sohbeti yok";
+
+//----timApp---
+"TIMAppMainTitle" = "Tencent Cloud·IM";
+"TIMAppMainConnectingTitle" = "Bağlanıyor...";
+"TIMAppMainDisconnectTitle" = "Tencent Cloud·IM(Bağlı değil)";
+"TIMAppTabBarItemMessageText" = "Mesajlar";
+"TIMAppTabBarItemContactText" = "Kişiler";
+"TIMAppTabBarItemMeText"      = "Ayarlar";
+"TIMAppTabBarItemMessageText_mini" = "Sohbet";
+"TIMAppTabBarItemContactText_mini" = "Kişiler";
+"TIMAppTabBarItemSettingText_mini" = "Ayarlar";
+"TIMAppTabBarItemCallsRecordText_mini" = "Arama kayıtları";
+"TIMAppChat" = "Sohbet";
+"TIMAppChatDisconnectTitle" = "Sohbet(Bağlı değil)";
+"TIMAppChatSecurityWarning" = "Lütfen para transferi, kazanma gibi bilgilere inanmayın, yabancı aramalara karşı dikkatli olun, dolandırıcılığa karşı kendinizi koruyun. Şüpheli durumlarda lütfen zamanında bildirin.";
+"TIMAppChatSecurityWarningReport" = "Bildirmek için tıklayın";
+"TIMAppChatSecurityWarningGot" = "Anladım";
+
+"TIMAppTencentCloudIM" = "Anlık Mesajlaşma";
+"TIMAppWelcomeToChat" = "Anlık Mesajlaşma IM ürün hizmetlerini deneyimlemek için bu UYGULAMAYI kullanın";
+"TIMAppWelcomeToChatDetails" = "Metin/emoji/zengin medya mesajları gönderme, mesaj yanıtlama, emoji tepkileri, mesaj okunma durumu, arkadaşlık zinciri gibi işlevleri deneyimlemek için bu UYGULAMAYI kullanın. Ayrıca, size yanıt vermeyen 3 bot arkadaş sağladık, doğrudan birebir sohbet, grup sohbeti başlatabilir, grup yönetimi gibi işlevleri deneyimleyebilirsiniz.";
+"TIMAppSelectStyle" = "Stil seç";
+"TIMAppChatStyles" = "IM özel stil değiştirme";
+"TIMAppChangeTheme" = "Tema seç";
+"TIMAppChatThemes" = "IM özel tema değiştirme";
+"TIMAppEnterChat" = "IM'e gir";
+"TIMAppRunDemo" = "2 satır kodu değiştir, Demo'yu 1 dakikada çalıştır";
+"TIMAppCustomers" = "Aylık 10000'den fazla müşteriye hizmet";
+"TIMAppMessagingSuccess" = "Mesaj gönderme/alma başarı oranı, hizmet güvenilirliği %99.99'dan yüksek";
+"TIMAppActiveUsers" = "Aylık 1 milyardan fazla aktif kullanıcı";
+"TIMAppOK" = "Anladım";
+"TIMApp1Billion+" = "1 Milyar+";
+"TIMApp10000+" = "10000+";
+"TIMApp1Minute" = "1 dakika";
+"TIMAppMeAbout" = "Tencent Cloud·IM Hakkında";
+"TIMAppConfirmLogout" = "Çıkmak istediğinizden emin misiniz";
+"TIMAppConfirm" = "Onayla";
+"TIMAppCancel" = "İptal";
+"TIMAppMarkAllMessageAsReadSucc" = "Okunmamışlar temizlendi";
+"TIMAppMarkAllMessageAsReadErrFormat" = "Okunmamışlar temizlenemedi, %d, %@";
+"TIMChangeLanguage" = "Dili değiştir";
+
+//----timApp---
+"TUIKitTickledMe" = "Ben";
+"TUIKitTickledActionVaule" = "okşadı";
+"TUIKitTickledMyself" = "kendimi";
+"TUIKitImageViewOrigin" = "Orijinal resmi görüntüle";
+"TUIGroupCreateTipsMessage" = "Grup oluştur";
+"TUICommunityCreateTipsMessage" = "Topluluk oluştur";
+"TUICommunityCreateTipsMessageRuleError" = "Topluluk ID'si @TGS#_ ile başlamalıdır";
+"TUIGroupCreateTipsMessageRuleError" = "Topluluk değil, @TGS#_ ile başlayamaz";
+
+//languageID
+"en"      = "İngilizce";
+"ar"      = "Arapça";
+"tr"      = "Türkçe";
+
+"TUIChatFaceGroupAllEmojiName" = "Tüm emojiler";
+"TUIChatFaceGroupRecentEmojiName" = "Son kullanılanlar";
