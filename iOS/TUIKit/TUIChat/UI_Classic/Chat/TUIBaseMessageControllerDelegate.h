@@ -120,6 +120,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (CGFloat)getTopMarginByCustomView;
 
+/// App extension: called before local presentation and sending; default implementation is a no-op.
+@optional
+- (void)messageController:(TUIBaseMessageController *)controller
+ prepareMessageForSending:(V2TIMMessage *)message;
+
 @end
 
 NS_ASSUME_NONNULL_END

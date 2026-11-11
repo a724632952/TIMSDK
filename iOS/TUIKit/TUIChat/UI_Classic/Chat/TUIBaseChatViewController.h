@@ -46,6 +46,9 @@
  */
 @interface TUIBaseChatViewController : UIViewController<TUIBaseMessageControllerDelegate>
 
+/// App send preparation hook; default implementation leaves the message unchanged.
+- (void)messageController:(TUIBaseMessageController *)controller prepareMessageForSending:(V2TIMMessage *)message;
+
 @property(nonatomic, strong) TUIChatConversationModel *conversationData;
 
 /**

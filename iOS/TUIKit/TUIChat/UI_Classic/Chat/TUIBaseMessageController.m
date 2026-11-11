@@ -340,6 +340,10 @@
 }
 
 - (void)sendUIMessage:(TUIMessageCellData *)cellData {
+    V2TIMMessage *message = cellData.innerMessage;
+    if (message && [self.delegate respondsToSelector:@selector(messageController:prepareMessageForSending:)]) {
+        [self.delegate messageController:self prepareMessageForSending:message];
+    }
     @weakify(self);
     cellData.innerMessage.needReadReceipt = self.isMsgNeedReadReceipt;
     [self.messageDataProvider sendUIMsg:cellData
@@ -434,11 +438,19 @@
     [self presentViewController:ac animated:YES completion:nil];
 }
 
+- (void)registerMessageCell:(Class)cellClass dataClass:(Class)dataClass reuseID:(NSString *)reuseID {
+    [self loadViewIfNeeded];
+    [self.messageCellConfig bindMessageCellClass:cellClass cellDataClass:dataClass reuseID:reuseID];
+}
+
 - (void)sendMessage:(V2TIMMessage *)message {
     [self sendMessage:message placeHolderCellData:nil];
 }
 
 - (void)sendMessage:(V2TIMMessage *)message placeHolderCellData:(TUIMessageCellData *)placeHolderCellData {
+    if (message && [self.delegate respondsToSelector:@selector(messageController:prepareMessageForSending:)]) {
+        [self.delegate messageController:self prepareMessageForSending:message];
+    }
     TUIMessageCellData *cellData = nil;
     if (message.elemType == V2TIM_ELEM_TYPE_CUSTOM) {
         cellData = [self.delegate messageController:self onNewMessage:message];

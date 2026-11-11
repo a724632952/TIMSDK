@@ -43,6 +43,14 @@
 
 @implementation TUIMessageBaseDataProvider
 
+static void (^_offlinePushInfoCustomizer)(V2TIMOfflinePushInfo *, TUIChatConversationModel *);
++ (void (^)(V2TIMOfflinePushInfo *, TUIChatConversationModel *))offlinePushInfoCustomizer {
+    return _offlinePushInfoCustomizer;
+}
++ (void)setOfflinePushInfoCustomizer:(void (^)(V2TIMOfflinePushInfo *, TUIChatConversationModel *))customizer {
+    _offlinePushInfoCustomizer = [customizer copy];
+}
+
 - (instancetype)initWithConversationModel:(TUIChatConversationModel *)conversationModel {
     self = [super init];
     if (self) {
@@ -1176,6 +1184,9 @@ static const int kOfflinePushVersion = 1;
         pushInfo.AndroidHonorImportance = @"NORMAL";
         pushInfo.iOSInterruptionLevel = @"time-sensitive";
         pushInfo.enableIOSBackgroundNotification = NO;
+        if (self.offlinePushInfoCustomizer) {
+            self.offlinePushInfoCustomizer(pushInfo, conversationData);
+        }
     }
 
     if ([self isGroupCommunity:conversationData.groupType groupID:conversationData.groupID] ||

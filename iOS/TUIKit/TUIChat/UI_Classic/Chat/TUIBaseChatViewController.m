@@ -933,6 +933,10 @@ static CGRect gCustomTopViewRect;
     return NO;
 }
 
+// Default no-op keeps existing private-chat behavior unchanged.
+- (void)messageController:(TUIBaseMessageController *)controller prepareMessageForSending:(V2TIMMessage *)message {
+}
+
 - (TUIMessageCellData *)messageController:(TUIBaseMessageController *)controller onNewMessage:(V2TIMMessage *)message {
     return nil;
 }

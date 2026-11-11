@@ -59,6 +59,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) void (^pinGroupMessageChanged)(NSArray *groupPinList);
 
 
+/// Register a cell only for this controller/table, including its height calculation.
+- (void)registerMessageCell:(Class)cellClass dataClass:(Class)dataClass reuseID:(NSString *)reuseID
+    NS_SWIFT_NAME(registerMessageCell(_:dataClass:reuseID:));
+
 - (void)sendMessage:(V2TIMMessage *)msg;
 
 - (void)sendMessage:(V2TIMMessage *)msg placeHolderCellData:(TUIMessageCellData *)placeHolderCellData;

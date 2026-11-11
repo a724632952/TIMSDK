@@ -83,6 +83,9 @@ typedef NS_ENUM(NSUInteger, TUIMessageBaseDataProviderDataSourceChangeType) {
  */
 @interface TUIMessageBaseDataProvider : NSObject
 
+/// Project hook to enrich offline push metadata without changing message content.
+@property(class, nonatomic, copy, nullable) void (^offlinePushInfoCustomizer)(V2TIMOfflinePushInfo *info, TUIChatConversationModel *conversation);
+
 @property(nonatomic, weak) id<TUIMessageBaseDataProviderDataSource> dataSource;
 @property(nonatomic, strong, readonly) TUIChatConversationModel *conversationModel;
 @property(nonatomic, strong, readonly) NSArray<TUIMessageCellData *> *uiMsgs;
